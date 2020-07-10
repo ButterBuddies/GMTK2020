@@ -13,7 +13,9 @@ public class Cat : MonoBehaviour
     // if the cat weights gets too much, then thespeed of the cat and the emotion of the cat gets inflicted. 
     public float weight = 1f;
     // Time it takes for cat to change it's behavior decisions beacse you know.. cats get weird and strange to predict?
-    public float timeToChangeDecision = 20.0f;
+    public float MaxTimeToChangeDecision = 20.0f;
+    public float MinTimeToChangeDecision = 5f;
+    private float _timeToChangeDirection;
     // Hmm.... over the time if the cat consume too much then the weight becomes a factor
     [Range(0,1)]
     public float foodConsumption = 0.5f;
@@ -90,6 +92,7 @@ public class Cat : MonoBehaviour
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _timeToChangeDirection = Random.Range(MinTimeToChangeDecision, MaxTimeToChangeDecision);
     }
 
     private void OnDrawGizmosSelected()
@@ -129,8 +132,9 @@ public class Cat : MonoBehaviour
         }
         _t += Time.deltaTime;
 
-        if( timeToChangeDecision < _t )
+        if(_timeToChangeDirection < _t )
         {
+            _timeToChangeDirection = Random.Range(MinTimeToChangeDecision, MaxTimeToChangeDecision);
             _t = 0;
             // somehow we're going to randomized the cat's behavior here?
             //float i = Random.Range(0, 2);
@@ -140,13 +144,13 @@ public class Cat : MonoBehaviour
             //}
             //else
             //{
-                // let's make it interesting? Let's find a marker somewhere on the map and pick it random?
-                float x = Mathf.Sin(Random.Range(-360.0f, 360.0f)) * Random.Range(MinRadius, MaxRadius) + transform.position.x;
-                float z = Mathf.Cos(Random.Range(-360.0f, 360.0f)) * Random.Range(MinRadius, MaxRadius) + transform.position.z;
-                Vector3 dir = new Vector3(x, this.transform.position.y + 10f, z);
-                CurrentBehavior = Behavior.Chase;
+            // let's make it interesting? Let's find a marker somewhere on the map and pick it random?
+            float x = Mathf.Sin(Random.Range(-360.0f, 360.0f)) * Random.Range(MinRadius, MaxRadius) + transform.position.x;
+            float z = Mathf.Cos(Random.Range(-360.0f, 360.0f)) * Random.Range(MinRadius, MaxRadius) + transform.position.z;
+            Vector3 dir = new Vector3(x, this.transform.position.y, z);
+            CurrentBehavior = Behavior.Chase;
                 // in this case we want the cat to be just walking.... instead of chasing?
-                _agent.SetDestination(dir);
+            _agent.SetDestination(dir);
             //}
         }
     }
