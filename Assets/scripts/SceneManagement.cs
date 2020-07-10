@@ -52,4 +52,10 @@ public class SceneManagement : MonoBehaviour
             SceneManager.LoadScene(0);
         }
     }
+
+    public void Quit()
+    {
+        //hmm do we need to worry about WebGL?
+        Application.Quit();
+    }
 }
