@@ -1,0 +1,1650 @@
+fileFormatVersion: 2
+guid: f2f6ccdf3435e64468f01d82a5dc49c1
+timeCreated: 1592672081
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Aardvark
+    100002: AddraGazelle
+    100004: AlderLeafBeetle
+    100006: Alligator
+    100008: Alpaca
+    100010: alt1
+    100012: alt1 1
+    100014: alt1 2
+    100016: alt1 3
+    100018: alt1 4
+    100020: alt1 5
+    100022: alt1 6
+    100024: alt2
+    100026: alt2 1
+    100028: alt2 2
+    100030: alt2 3
+    100032: alt2 4
+    100034: alt2 5
+    100036: alt3
+    100038: alt3 1
+    100040: alt339
+    100042: alt340
+    100044: alt341
+    100046: alt342
+    100048: alt343
+    100050: alt344
+    100052: alt345
+    100054: alt346
+    100056: alt347
+    100058: alt348
+    100060: alt349
+    100062: alt350
+    100064: alt351
+    100066: alt352
+    100068: alt353
+    100070: alt354
+    100072: alt355
+    100074: alt356
+    100076: alt358
+    100078: alt359
+    100080: alt4
+    100082: alt5
+    100084: alt572
+    100086: alt573
+    100088: alt574
+    100090: alt575
+    100092: alt576
+    100094: alt577
+    100096: alt578
+    100098: alt579
+    100100: alt580
+    100102: alt581
+    100104: alt582
+    100106: alt583
+    100108: alt584
+    100110: alt585
+    100112: alt586
+    100114: alt587
+    100116: alt588
+    100118: alt589
+    100120: alt590
+    100122: alt591
+    100124: alt592
+    100126: alt593
+    100128: alt594
+    100130: alt595
+    100132: alt596
+    100134: alt597
+    100136: alt598
+    100138: alt599
+    100140: alt6
+    100142: alt600
+    100144: alt601
+    100146: alt602
+    100148: alt603
+    100150: alt604
+    100152: alt605
+    100154: alt606
+    100156: alt607
+    100158: alt608
+    100160: alt609
+    100162: alt610
+    100164: alt611
+    100166: alt612
+    100168: alt613
+    100170: alt614
+    100172: alt615
+    100174: Amphibians
+    100176: AnimalParts
+    100178: Animals
+    100180: Anteater
+    100182: Arachnids
+    100184: ArcticFox
+    100186: ArcticHare
+    100188: ArcticTern
+    100190: ArcticWolf
+    100192: Armadillo
+    100194: BabyPenguin
+    100196: BabySeal
+    100198: base
+    100200: base 1
+    100202: base 10
+    100204: base 100
+    100206: base 101
+    100208: base 102
+    100210: base 103
+    100212: base 104
+    100214: base 105
+    100216: base 106
+    100218: base 107
+    100220: base 108
+    100222: base 109
+    100224: base 11
+    100226: base 110
+    100228: base 111
+    100230: base 112
+    100232: base 113
+    100234: base 114
+    100236: base 115
+    100238: base 116
+    100240: base 117
+    100242: base 118
+    100244: base 119
+    100246: base 12
+    100248: base 120
+    100250: base 121
+    100252: base 122
+    100254: base 123
+    100256: base 124
+    100258: base 125
+    100260: base 126
+    100262: base 127
+    100264: base 128
+    100266: base 129
+    100268: base 13
+    100270: base 130
+    100272: base 131
+    100274: base 132
+    100276: base 133
+    100278: base 134
+    100280: base 135
+    100282: base 136
+    100284: base 137
+    100286: base 138
+    100288: base 139
+    100290: base 14
+    100292: base 140
+    100294: base 141
+    100296: base 142
+    100298: base 143
+    100300: base 144
+    100302: base 145
+    100304: base 146
+    100306: base 147
+    100308: base 15
+    100310: base 16
+    100312: base 17
+    100314: base 18
+    100316: base 19
+    100318: base 2
+    100320: base 20
+    100322: base 21
+    100324: base 22
+    100326: base 23
+    100328: base 24
+    100330: base 25
+    100332: base 26
+    100334: base 27
+    100336: base 28
+    100338: base 29
+    100340: base 3
+    100342: base 30
+    100344: base 31
+    100346: base 32
+    100348: base 33
+    100350: base 34
+    100352: base 35
+    100354: base 36
+    100356: base 37
+    100358: base 38
+    100360: base 39
+    100362: base 4
+    100364: base 40
+    100366: base 41
+    100368: base 42
+    100370: base 43
+    100372: base 44
+    100374: base 45
+    100376: base 46
+    100378: base 47
+    100380: base 48
+    100382: base 49
+    100384: base 5
+    100386: base 50
+    100388: base 51
+    100390: base 52
+    100392: base 53
+    100394: base 54
+    100396: base 55
+    100398: base 56
+    100400: base 57
+    100402: base 58
+    100404: base 59
+    100406: base 6
+    100408: base 60
+    100410: base 61
+    100412: base 62
+    100414: base 63
+    100416: base 64
+    100418: base 65
+    100420: base 66
+    100422: base 67
+    100424: base 68
+    100426: base 69
+    100428: base 7
+    100430: base 70
+    100432: base 71
+    100434: base 72
+    100436: base 73
+    100438: base 74
+    100440: base 75
+    100442: base 76
+    100444: base 77
+    100446: base 78
+    100448: base 79
+    100450: base 8
+    100452: base 80
+    100454: base 81
+    100456: base 82
+    100458: base 83
+    100460: base 84
+    100462: base 85
+    100464: base 86
+    100466: base 87
+    100468: base 88
+    100470: base 89
+    100472: base 9
+    100474: base 90
+    100476: base 91
+    100478: base 92
+    100480: base 93
+    100482: base 94
+    100484: base 95
+    100486: base 96
+    100488: base 97
+    100490: base 98
+    100492: base 99
+    100494: Batto
+    100496: Bee
+    100498: Bel
+    100500: BighornSheep
+    100502: Birds
+    100504: BirdsUpright
+    100506: Bison
+    100508: BlackAnt
+    100510: BlackBear
+    100512: Blackbuck
+    100514: BlackFeather
+    100516: BlackHorse
+    100518: BlackPanther
+    100520: BlackSquirrel
+    100522: BlackWidow
+    100524: BlueFly
+    100526: BlueMorphoButterfly
+    100528: Boar
+    100530: Bobcat
+    100532: BrokenBrain
+    100534: BrownBear
+    100536: BrownCow
+    100538: Camel
+    100540: Caribou
+    100542: Cat
+    100544: Caterpillar
+    100546: Centipede
+    100548: Chameleon
+    100550: Cheetah
+    100552: ChestnutHorse
+    100554: Chicken
+    100556: Chimpanzee
+    100558: Cicada
+    100560: Condor
+    100562: CoralSnake
+    100564: CowboyBeetle
+    100566: Coyote
+    100568: Crane
+    100570: Cricket
+    100572: Crocodile
+    100574: Crow
+    100576: Curow
+    100578: DblSided
+    100580: DblSided 1
+    100582: DeathStalkerScorpion
+    100584: Deer
+    100586: Dobermann
+    100588: Donkey
+    100590: Dove
+    100592: Dragonfly
+    100594: DrosophilaMelanogaster
+    100596: Eagle
+    100598: Earthworm
+    100600: Elephant
+    100602: EmperorScorpion
+    100604: Entraine
+    100606: //RootNode
+    100608: EyeBall
+    100610: Falcon
+    100612: FireAnt
+    100614: Firefly
+    100616: FlyingInsects
+    100618: Gecko
+    100620: Gemsbok
+    100622: Giraffe
+    100624: Goat
+    100626: GoldenStagBeetle
+    100628: Goose
+    100630: Gorilla
+    100632: Grackle
+    100634: Grasshopper
+    100636: GrayHorse
+    100638: GraySquirrel
+    100640: GrayWolf
+    100642: GreenFrog
+    100644: GreenIguana
+    100646: Greyhound
+    100648: GroundedCrow
+    100650: GroundedPigeon
+    100652: Gull
+    100654: HarbourSeal
+    100656: Hare
+    100658: Hedgehog
+    100660: Hippo
+    100662: HolsteinCow
+    100664: Hummingbird
+    100666: Hyena
+    100668: Ibex
+    100670: Imaginary
+    100672: Insects
+    100674: KitFox
+    100676: KoalaBear
+    100678: KomodoDragon
+    100680: LabradorPuppy
+    100682: Ladybug
+    100684: light
+    100686: light 1
+    100688: Lion
+    100690: Llama
+    100692: Mallard
+    100694: Mandrill
+    100696: Marmot
+    100698: Megaloceros
+    100700: MidnightDeer
+    100702: Millipede
+    100704: MockerSwallowtailButterfly
+    100706: MonarchButterfly
+    100708: Moose
+    100710: Mosquito
+    100712: Moth
+    100714: MountainLion
+    100716: Mouse
+    100718: Muskox
+    100720: Okapi
+    100722: Opossum
+    100724: Orangutan
+    100726: Oryx
+    100728: Ostrich
+    100730: Otter
+    100732: PalominoHorse
+    100734: Panda
+    100736: Peacock
+    100738: PekinDuck
+    100740: Penguin
+    100742: Pig
+    100744: Pigeon
+    100746: PolarBear
+    100748: Poodle
+    100750: PrayingMantis
+    100752: Pronghorn
+    100754: Ptarmigan
+    100756: Rabbit
+    100758: Raccoon
+    100760: Rat
+    100762: Rattlesnake
+    100764: RedBloodCell
+    100766: RedEyedTreeFrog
+    100768: RedFox
+    100770: RedPanda
+    100772: RedSquirrel
+    100774: Reptiles
+    100776: Rhino
+    100778: Roach
+    100780: RockIguana
+    100782: RockyMountainElk
+    100784: SableAntelope
+    100786: Sheep
+    100788: Skeleton
+    100790: Skunk
+    100792: Sloth
+    100794: Snail
+    100796: SnowLeopard
+    100798: SnowyOwl
+    100800: SpruceBeetle
+    100802: StagBeetle
+    100804: Swallow
+    100806: Swan
+    100808: Tarantula
+    100810: Tiger
+    100812: Toad
+    100814: Tooth
+    100816: Tortoise
+    100818: transp
+    100820: transp 1
+    100822: transp 2
+    100824: transp 3
+    100826: transp 4
+    100828: Turd
+    100830: Turkey
+    100832: Unicorn
+    100834: VampireBat
+    100836: Vulture
+    100838: Walrus
+    100840: WhiteCow
+    100842: WhiteFeather
+    100844: WhiteTiger
+    100846: WildDuck
+    100848: Wildebeest
+    100850: WildHorse
+    100852: WoolyMammoth
+    100854: Zebra
+    400000: Aardvark
+    400002: AddraGazelle
+    400004: AlderLeafBeetle
+    400006: Alligator
+    400008: Alpaca
+    400010: alt1
+    400012: alt1 1
+    400014: alt1 2
+    400016: alt1 3
+    400018: alt1 4
+    400020: alt1 5
+    400022: alt1 6
+    400024: alt2
+    400026: alt2 1
+    400028: alt2 2
+    400030: alt2 3
+    400032: alt2 4
+    400034: alt2 5
+    400036: alt3
+    400038: alt3 1
+    400040: alt339
+    400042: alt340
+    400044: alt341
+    400046: alt342
+    400048: alt343
+    400050: alt344
+    400052: alt345
+    400054: alt346
+    400056: alt347
+    400058: alt348
+    400060: alt349
+    400062: alt350
+    400064: alt351
+    400066: alt352
+    400068: alt353
+    400070: alt354
+    400072: alt355
+    400074: alt356
+    400076: alt358
+    400078: alt359
+    400080: alt4
+    400082: alt5
+    400084: alt572
+    400086: alt573
+    400088: alt574
+    400090: alt575
+    400092: alt576
+    400094: alt577
+    400096: alt578
+    400098: alt579
+    400100: alt580
+    400102: alt581
+    400104: alt582
+    400106: alt583
+    400108: alt584
+    400110: alt585
+    400112: alt586
+    400114: alt587
+    400116: alt588
+    400118: alt589
+    400120: alt590
+    400122: alt591
+    400124: alt592
+    400126: alt593
+    400128: alt594
+    400130: alt595
+    400132: alt596
+    400134: alt597
+    400136: alt598
+    400138: alt599
+    400140: alt6
+    400142: alt600
+    400144: alt601
+    400146: alt602
+    400148: alt603
+    400150: alt604
+    400152: alt605
+    400154: alt606
+    400156: alt607
+    400158: alt608
+    400160: alt609
+    400162: alt610
+    400164: alt611
+    400166: alt612
+    400168: alt613
+    400170: alt614
+    400172: alt615
+    400174: Amphibians
+    400176: AnimalParts
+    400178: Animals
+    400180: Anteater
+    400182: Arachnids
+    400184: ArcticFox
+    400186: ArcticHare
+    400188: ArcticTern
+    400190: ArcticWolf
+    400192: Armadillo
+    400194: BabyPenguin
+    400196: BabySeal
+    400198: base
+    400200: base 1
+    400202: base 10
+    400204: base 100
+    400206: base 101
+    400208: base 102
+    400210: base 103
+    400212: base 104
+    400214: base 105
+    400216: base 106
+    400218: base 107
+    400220: base 108
+    400222: base 109
+    400224: base 11
+    400226: base 110
+    400228: base 111
+    400230: base 112
+    400232: base 113
+    400234: base 114
+    400236: base 115
+    400238: base 116
+    400240: base 117
+    400242: base 118
+    400244: base 119
+    400246: base 12
+    400248: base 120
+    400250: base 121
+    400252: base 122
+    400254: base 123
+    400256: base 124
+    400258: base 125
+    400260: base 126
+    400262: base 127
+    400264: base 128
+    400266: base 129
+    400268: base 13
+    400270: base 130
+    400272: base 131
+    400274: base 132
+    400276: base 133
+    400278: base 134
+    400280: base 135
+    400282: base 136
+    400284: base 137
+    400286: base 138
+    400288: base 139
+    400290: base 14
+    400292: base 140
+    400294: base 141
+    400296: base 142
+    400298: base 143
+    400300: base 144
+    400302: base 145
+    400304: base 146
+    400306: base 147
+    400308: base 15
+    400310: base 16
+    400312: base 17
+    400314: base 18
+    400316: base 19
+    400318: base 2
+    400320: base 20
+    400322: base 21
+    400324: base 22
+    400326: base 23
+    400328: base 24
+    400330: base 25
+    400332: base 26
+    400334: base 27
+    400336: base 28
+    400338: base 29
+    400340: base 3
+    400342: base 30
+    400344: base 31
+    400346: base 32
+    400348: base 33
+    400350: base 34
+    400352: base 35
+    400354: base 36
+    400356: base 37
+    400358: base 38
+    400360: base 39
+    400362: base 4
+    400364: base 40
+    400366: base 41
+    400368: base 42
+    400370: base 43
+    400372: base 44
+    400374: base 45
+    400376: base 46
+    400378: base 47
+    400380: base 48
+    400382: base 49
+    400384: base 5
+    400386: base 50
+    400388: base 51
+    400390: base 52
+    400392: base 53
+    400394: base 54
+    400396: base 55
+    400398: base 56
+    400400: base 57
+    400402: base 58
+    400404: base 59
+    400406: base 6
+    400408: base 60
+    400410: base 61
+    400412: base 62
+    400414: base 63
+    400416: base 64
+    400418: base 65
+    400420: base 66
+    400422: base 67
+    400424: base 68
+    400426: base 69
+    400428: base 7
+    400430: base 70
+    400432: base 71
+    400434: base 72
+    400436: base 73
+    400438: base 74
+    400440: base 75
+    400442: base 76
+    400444: base 77
+    400446: base 78
+    400448: base 79
+    400450: base 8
+    400452: base 80
+    400454: base 81
+    400456: base 82
+    400458: base 83
+    400460: base 84
+    400462: base 85
+    400464: base 86
+    400466: base 87
+    400468: base 88
+    400470: base 89
+    400472: base 9
+    400474: base 90
+    400476: base 91
+    400478: base 92
+    400480: base 93
+    400482: base 94
+    400484: base 95
+    400486: base 96
+    400488: base 97
+    400490: base 98
+    400492: base 99
+    400494: Batto
+    400496: Bee
+    400498: Bel
+    400500: BighornSheep
+    400502: Birds
+    400504: BirdsUpright
+    400506: Bison
+    400508: BlackAnt
+    400510: BlackBear
+    400512: Blackbuck
+    400514: BlackFeather
+    400516: BlackHorse
+    400518: BlackPanther
+    400520: BlackSquirrel
+    400522: BlackWidow
+    400524: BlueFly
+    400526: BlueMorphoButterfly
+    400528: Boar
+    400530: Bobcat
+    400532: BrokenBrain
+    400534: BrownBear
+    400536: BrownCow
+    400538: Camel
+    400540: Caribou
+    400542: Cat
+    400544: Caterpillar
+    400546: Centipede
+    400548: Chameleon
+    400550: Cheetah
+    400552: ChestnutHorse
+    400554: Chicken
+    400556: Chimpanzee
+    400558: Cicada
+    400560: Condor
+    400562: CoralSnake
+    400564: CowboyBeetle
+    400566: Coyote
+    400568: Crane
+    400570: Cricket
+    400572: Crocodile
+    400574: Crow
+    400576: Curow
+    400578: DblSided
+    400580: DblSided 1
+    400582: DeathStalkerScorpion
+    400584: Deer
+    400586: Dobermann
+    400588: Donkey
+    400590: Dove
+    400592: Dragonfly
+    400594: DrosophilaMelanogaster
+    400596: Eagle
+    400598: Earthworm
+    400600: Elephant
+    400602: EmperorScorpion
+    400604: Entraine
+    400606: //RootNode
+    400608: EyeBall
+    400610: Falcon
+    400612: FireAnt
+    400614: Firefly
+    400616: FlyingInsects
+    400618: Gecko
+    400620: Gemsbok
+    400622: Giraffe
+    400624: Goat
+    400626: GoldenStagBeetle
+    400628: Goose
+    400630: Gorilla
+    400632: Grackle
+    400634: Grasshopper
+    400636: GrayHorse
+    400638: GraySquirrel
+    400640: GrayWolf
+    400642: GreenFrog
+    400644: GreenIguana
+    400646: Greyhound
+    400648: GroundedCrow
+    400650: GroundedPigeon
+    400652: Gull
+    400654: HarbourSeal
+    400656: Hare
+    400658: Hedgehog
+    400660: Hippo
+    400662: HolsteinCow
+    400664: Hummingbird
+    400666: Hyena
+    400668: Ibex
+    400670: Imaginary
+    400672: Insects
+    400674: KitFox
+    400676: KoalaBear
+    400678: KomodoDragon
+    400680: LabradorPuppy
+    400682: Ladybug
+    400684: light
+    400686: light 1
+    400688: Lion
+    400690: Llama
+    400692: Mallard
+    400694: Mandrill
+    400696: Marmot
+    400698: Megaloceros
+    400700: MidnightDeer
+    400702: Millipede
+    400704: MockerSwallowtailButterfly
+    400706: MonarchButterfly
+    400708: Moose
+    400710: Mosquito
+    400712: Moth
+    400714: MountainLion
+    400716: Mouse
+    400718: Muskox
+    400720: Okapi
+    400722: Opossum
+    400724: Orangutan
+    400726: Oryx
+    400728: Ostrich
+    400730: Otter
+    400732: PalominoHorse
+    400734: Panda
+    400736: Peacock
+    400738: PekinDuck
+    400740: Penguin
+    400742: Pig
+    400744: Pigeon
+    400746: PolarBear
+    400748: Poodle
+    400750: PrayingMantis
+    400752: Pronghorn
+    400754: Ptarmigan
+    400756: Rabbit
+    400758: Raccoon
+    400760: Rat
+    400762: Rattlesnake
+    400764: RedBloodCell
+    400766: RedEyedTreeFrog
+    400768: RedFox
+    400770: RedPanda
+    400772: RedSquirrel
+    400774: Reptiles
+    400776: Rhino
+    400778: Roach
+    400780: RockIguana
+    400782: RockyMountainElk
+    400784: SableAntelope
+    400786: Sheep
+    400788: Skeleton
+    400790: Skunk
+    400792: Sloth
+    400794: Snail
+    400796: SnowLeopard
+    400798: SnowyOwl
+    400800: SpruceBeetle
+    400802: StagBeetle
+    400804: Swallow
+    400806: Swan
+    400808: Tarantula
+    400810: Tiger
+    400812: Toad
+    400814: Tooth
+    400816: Tortoise
+    400818: transp
+    400820: transp 1
+    400822: transp 2
+    400824: transp 3
+    400826: transp 4
+    400828: Turd
+    400830: Turkey
+    400832: Unicorn
+    400834: VampireBat
+    400836: Vulture
+    400838: Walrus
+    400840: WhiteCow
+    400842: WhiteFeather
+    400844: WhiteTiger
+    400846: WildDuck
+    400848: Wildebeest
+    400850: WildHorse
+    400852: WoolyMammoth
+    400854: Zebra
+    2300000: alt1
+    2300002: alt1 2
+    2300004: alt1 3
+    2300006: alt1 4
+    2300008: alt1 6
+    2300010: alt2
+    2300012: alt2 2
+    2300014: alt2 3
+    2300016: alt2 5
+    2300018: alt3 1
+    2300020: alt339
+    2300022: alt340
+    2300024: alt341
+    2300026: alt342
+    2300028: alt343
+    2300030: alt344
+    2300032: alt345
+    2300034: alt346
+    2300036: alt347
+    2300038: alt348
+    2300040: alt349
+    2300042: alt350
+    2300044: alt351
+    2300046: alt352
+    2300048: alt353
+    2300050: alt354
+    2300052: alt355
+    2300054: alt356
+    2300056: alt358
+    2300058: alt359
+    2300060: alt4
+    2300062: alt5
+    2300064: alt572
+    2300066: alt573
+    2300068: alt574
+    2300070: alt575
+    2300072: alt576
+    2300074: alt577
+    2300076: alt578
+    2300078: alt579
+    2300080: alt580
+    2300082: alt581
+    2300084: alt582
+    2300086: alt583
+    2300088: alt584
+    2300090: alt585
+    2300092: alt586
+    2300094: alt587
+    2300096: alt588
+    2300098: alt589
+    2300100: alt590
+    2300102: alt591
+    2300104: alt592
+    2300106: alt593
+    2300108: alt594
+    2300110: alt595
+    2300112: alt596
+    2300114: alt597
+    2300116: alt598
+    2300118: alt599
+    2300120: alt6
+    2300122: alt600
+    2300124: alt601
+    2300126: alt602
+    2300128: alt603
+    2300130: alt604
+    2300132: alt605
+    2300134: alt606
+    2300136: alt607
+    2300138: alt608
+    2300140: alt609
+    2300142: alt610
+    2300144: alt611
+    2300146: alt612
+    2300148: alt613
+    2300150: alt614
+    2300152: alt615
+    2300154: base
+    2300156: base 1
+    2300158: base 10
+    2300160: base 100
+    2300162: base 101
+    2300164: base 102
+    2300166: base 103
+    2300168: base 104
+    2300170: base 105
+    2300172: base 106
+    2300174: base 107
+    2300176: base 108
+    2300178: base 109
+    2300180: base 11
+    2300182: base 110
+    2300184: base 111
+    2300186: base 112
+    2300188: base 113
+    2300190: base 114
+    2300192: base 115
+    2300194: base 116
+    2300196: base 117
+    2300198: base 118
+    2300200: base 119
+    2300202: base 12
+    2300204: base 120
+    2300206: base 121
+    2300208: base 122
+    2300210: base 123
+    2300212: base 124
+    2300214: base 125
+    2300216: base 126
+    2300218: base 127
+    2300220: base 128
+    2300222: base 129
+    2300224: base 13
+    2300226: base 130
+    2300228: base 131
+    2300230: base 132
+    2300232: base 133
+    2300234: base 134
+    2300236: base 135
+    2300238: base 136
+    2300240: base 137
+    2300242: base 138
+    2300244: base 139
+    2300246: base 14
+    2300248: base 140
+    2300250: base 141
+    2300252: base 142
+    2300254: base 143
+    2300256: base 144
+    2300258: base 145
+    2300260: base 146
+    2300262: base 147
+    2300264: base 15
+    2300266: base 16
+    2300268: base 17
+    2300270: base 18
+    2300272: base 19
+    2300274: base 2
+    2300276: base 20
+    2300278: base 21
+    2300280: base 22
+    2300282: base 23
+    2300284: base 24
+    2300286: base 25
+    2300288: base 26
+    2300290: base 27
+    2300292: base 28
+    2300294: base 29
+    2300296: base 3
+    2300298: base 30
+    2300300: base 31
+    2300302: base 32
+    2300304: base 33
+    2300306: base 34
+    2300308: base 35
+    2300310: base 36
+    2300312: base 37
+    2300314: base 38
+    2300316: base 39
+    2300318: base 4
+    2300320: base 40
+    2300322: base 41
+    2300324: base 42
+    2300326: base 43
+    2300328: base 44
+    2300330: base 45
+    2300332: base 46
+    2300334: base 47
+    2300336: base 48
+    2300338: base 49
+    2300340: base 5
+    2300342: base 50
+    2300344: base 51
+    2300346: base 52
+    2300348: base 53
+    2300350: base 54
+    2300352: base 55
+    2300354: base 56
+    2300356: base 57
+    2300358: base 58
+    2300360: base 59
+    2300362: base 6
+    2300364: base 60
+    2300366: base 61
+    2300368: base 62
+    2300370: base 63
+    2300372: base 64
+    2300374: base 65
+    2300376: base 66
+    2300378: base 67
+    2300380: base 68
+    2300382: base 69
+    2300384: base 7
+    2300386: base 70
+    2300388: base 71
+    2300390: base 72
+    2300392: base 73
+    2300394: base 74
+    2300396: base 75
+    2300398: base 76
+    2300400: base 77
+    2300402: base 78
+    2300404: base 79
+    2300406: base 8
+    2300408: base 80
+    2300410: base 81
+    2300412: base 82
+    2300414: base 83
+    2300416: base 84
+    2300418: base 85
+    2300420: base 86
+    2300422: base 87
+    2300424: base 88
+    2300426: base 89
+    2300428: base 9
+    2300430: base 90
+    2300432: base 91
+    2300434: base 92
+    2300436: base 93
+    2300438: base 94
+    2300440: base 95
+    2300442: base 96
+    2300444: base 97
+    2300446: base 98
+    2300448: base 99
+    2300450: BrokenBrain
+    2300452: DblSided
+    2300454: DblSided 1
+    2300456: GreenFrog
+    2300458: light 1
+    2300460: RedBloodCell
+    2300462: RedEyedTreeFrog
+    2300464: Toad
+    2300466: transp
+    2300468: transp 1
+    2300470: transp 2
+    2300472: transp 3
+    2300474: transp 4
+    2300476: Turd
+    3300000: alt1
+    3300002: alt1 2
+    3300004: alt1 3
+    3300006: alt1 4
+    3300008: alt1 6
+    3300010: alt2
+    3300012: alt2 2
+    3300014: alt2 3
+    3300016: alt2 5
+    3300018: alt3 1
+    3300020: alt339
+    3300022: alt340
+    3300024: alt341
+    3300026: alt342
+    3300028: alt343
+    3300030: alt344
+    3300032: alt345
+    3300034: alt346
+    3300036: alt347
+    3300038: alt348
+    3300040: alt349
+    3300042: alt350
+    3300044: alt351
+    3300046: alt352
+    3300048: alt353
+    3300050: alt354
+    3300052: alt355
+    3300054: alt356
+    3300056: alt358
+    3300058: alt359
+    3300060: alt4
+    3300062: alt5
+    3300064: alt572
+    3300066: alt573
+    3300068: alt574
+    3300070: alt575
+    3300072: alt576
+    3300074: alt577
+    3300076: alt578
+    3300078: alt579
+    3300080: alt580
+    3300082: alt581
+    3300084: alt582
+    3300086: alt583
+    3300088: alt584
+    3300090: alt585
+    3300092: alt586
+    3300094: alt587
+    3300096: alt588
+    3300098: alt589
+    3300100: alt590
+    3300102: alt591
+    3300104: alt592
+    3300106: alt593
+    3300108: alt594
+    3300110: alt595
+    3300112: alt596
+    3300114: alt597
+    3300116: alt598
+    3300118: alt599
+    3300120: alt6
+    3300122: alt600
+    3300124: alt601
+    3300126: alt602
+    3300128: alt603
+    3300130: alt604
+    3300132: alt605
+    3300134: alt606
+    3300136: alt607
+    3300138: alt608
+    3300140: alt609
+    3300142: alt610
+    3300144: alt611
+    3300146: alt612
+    3300148: alt613
+    3300150: alt614
+    3300152: alt615
+    3300154: base
+    3300156: base 1
+    3300158: base 10
+    3300160: base 100
+    3300162: base 101
+    3300164: base 102
+    3300166: base 103
+    3300168: base 104
+    3300170: base 105
+    3300172: base 106
+    3300174: base 107
+    3300176: base 108
+    3300178: base 109
+    3300180: base 11
+    3300182: base 110
+    3300184: base 111
+    3300186: base 112
+    3300188: base 113
+    3300190: base 114
+    3300192: base 115
+    3300194: base 116
+    3300196: base 117
+    3300198: base 118
+    3300200: base 119
+    3300202: base 12
+    3300204: base 120
+    3300206: base 121
+    3300208: base 122
+    3300210: base 123
+    3300212: base 124
+    3300214: base 125
+    3300216: base 126
+    3300218: base 127
+    3300220: base 128
+    3300222: base 129
+    3300224: base 13
+    3300226: base 130
+    3300228: base 131
+    3300230: base 132
+    3300232: base 133
+    3300234: base 134
+    3300236: base 135
+    3300238: base 136
+    3300240: base 137
+    3300242: base 138
+    3300244: base 139
+    3300246: base 14
+    3300248: base 140
+    3300250: base 141
+    3300252: base 142
+    3300254: base 143
+    3300256: base 144
+    3300258: base 145
+    3300260: base 146
+    3300262: base 147
+    3300264: base 15
+    3300266: base 16
+    3300268: base 17
+    3300270: base 18
+    3300272: base 19
+    3300274: base 2
+    3300276: base 20
+    3300278: base 21
+    3300280: base 22
+    3300282: base 23
+    3300284: base 24
+    3300286: base 25
+    3300288: base 26
+    3300290: base 27
+    3300292: base 28
+    3300294: base 29
+    3300296: base 3
+    3300298: base 30
+    3300300: base 31
+    3300302: base 32
+    3300304: base 33
+    3300306: base 34
+    3300308: base 35
+    3300310: base 36
+    3300312: base 37
+    3300314: base 38
+    3300316: base 39
+    3300318: base 4
+    3300320: base 40
+    3300322: base 41
+    3300324: base 42
+    3300326: base 43
+    3300328: base 44
+    3300330: base 45
+    3300332: base 46
+    3300334: base 47
+    3300336: base 48
+    3300338: base 49
+    3300340: base 5
+    3300342: base 50
+    3300344: base 51
+    3300346: base 52
+    3300348: base 53
+    3300350: base 54
+    3300352: base 55
+    3300354: base 56
+    3300356: base 57
+    3300358: base 58
+    3300360: base 59
+    3300362: base 6
+    3300364: base 60
+    3300366: base 61
+    3300368: base 62
+    3300370: base 63
+    3300372: base 64
+    3300374: base 65
+    3300376: base 66
+    3300378: base 67
+    3300380: base 68
+    3300382: base 69
+    3300384: base 7
+    3300386: base 70
+    3300388: base 71
+    3300390: base 72
+    3300392: base 73
+    3300394: base 74
+    3300396: base 75
+    3300398: base 76
+    3300400: base 77
+    3300402: base 78
+    3300404: base 79
+    3300406: base 8
+    3300408: base 80
+    3300410: base 81
+    3300412: base 82
+    3300414: base 83
+    3300416: base 84
+    3300418: base 85
+    3300420: base 86
+    3300422: base 87
+    3300424: base 88
+    3300426: base 89
+    3300428: base 9
+    3300430: base 90
+    3300432: base 91
+    3300434: base 92
+    3300436: base 93
+    3300438: base 94
+    3300440: base 95
+    3300442: base 96
+    3300444: base 97
+    3300446: base 98
+    3300448: base 99
+    3300450: BrokenBrain
+    3300452: DblSided
+    3300454: DblSided 1
+    3300456: GreenFrog
+    3300458: light 1
+    3300460: RedBloodCell
+    3300462: RedEyedTreeFrog
+    3300464: Toad
+    3300466: transp
+    3300468: transp 1
+    3300470: transp 2
+    3300472: transp 3
+    3300474: transp 4
+    3300476: Turd
+    4300000: base
+    4300002: base
+    4300004: base
+    4300006: base
+    4300008: base
+    4300010: base
+    4300012: base
+    4300014: base
+    4300016: base
+    4300018: base
+    4300020: base
+    4300022: alt1
+    4300024: alt2
+    4300026: transp
+    4300028: base
+    4300030: base
+    4300032: base
+    4300034: base
+    4300036: base
+    4300038: base
+    4300040: base
+    4300042: base
+    4300044: base
+    4300046: GreenFrog
+    4300048: RedEyedTreeFrog
+    4300050: Toad
+    4300052: alt574
+    4300054: alt575
+    4300056: alt576
+    4300058: alt577
+    4300060: alt578
+    4300062: alt579
+    4300064: alt580
+    4300066: alt581
+    4300068: alt582
+    4300070: alt583
+    4300072: base
+    4300074: base
+    4300076: base
+    4300078: base
+    4300080: base
+    4300082: alt584
+    4300084: alt585
+    4300086: base
+    4300088: base
+    4300090: base
+    4300092: base
+    4300094: base
+    4300096: alt586
+    4300098: alt587
+    4300100: alt588
+    4300102: alt589
+    4300104: alt590
+    4300106: alt591
+    4300108: alt592
+    4300110: alt593
+    4300112: base
+    4300114: base
+    4300116: alt594
+    4300118: alt595
+    4300120: base
+    4300122: base
+    4300124: base
+    4300126: base
+    4300128: base
+    4300130: base
+    4300132: base
+    4300134: base
+    4300136: base
+    4300138: base
+    4300140: alt596
+    4300142: alt597
+    4300144: base
+    4300146: alt598
+    4300148: alt599
+    4300150: base
+    4300152: base
+    4300154: base
+    4300156: base
+    4300158: alt600
+    4300160: alt601
+    4300162: base
+    4300164: base
+    4300166: base
+    4300168: base
+    4300170: base
+    4300172: base
+    4300174: base
+    4300176: alt602
+    4300178: alt603
+    4300180: base
+    4300182: base
+    4300184: base
+    4300186: base
+    4300188: base
+    4300190: base
+    4300192: base
+    4300194: base
+    4300196: base
+    4300198: base
+    4300200: base
+    4300202: base
+    4300204: base
+    4300206: alt604
+    4300208: alt605
+    4300210: base
+    4300212: base
+    4300214: base
+    4300216: base
+    4300218: base
+    4300220: base
+    4300222: base
+    4300224: base
+    4300226: base
+    4300228: base
+    4300230: base
+    4300232: base
+    4300234: alt606
+    4300236: alt607
+    4300238: base
+    4300240: base
+    4300242: base
+    4300244: alt608
+    4300246: alt609
+    4300248: base
+    4300250: base
+    4300252: base
+    4300254: alt610
+    4300256: alt611
+    4300258: base
+    4300260: base
+    4300262: base
+    4300264: base
+    4300266: base
+    4300268: base
+    4300270: base
+    4300272: base
+    4300274: alt612
+    4300276: alt613
+    4300278: DblSided
+    4300280: base
+    4300282: base
+    4300284: base
+    4300286: base
+    4300288: base
+    4300290: alt614
+    4300292: alt615
+    4300294: base
+    4300296: base
+    4300298: base
+    4300300: base
+    4300302: base
+    4300304: base
+    4300306: base
+    4300308: base
+    4300310: base
+    4300312: base
+    4300314: base
+    4300316: base
+    4300318: base
+    4300320: base
+    4300322: base
+    4300324: base
+    4300326: base
+    4300328: base
+    4300330: base
+    4300332: base
+    4300334: base
+    4300336: base
+    4300338: base
+    4300340: base
+    4300342: base
+    4300344: base
+    4300346: base
+    4300348: base
+    4300350: base
+    4300352: base
+    4300354: base
+    4300356: base
+    4300358: alt1
+    4300360: alt339
+    4300362: alt340
+    4300364: alt341
+    4300366: alt342
+    4300368: alt343
+    4300370: alt344
+    4300372: alt345
+    4300374: alt346
+    4300376: alt347
+    4300378: alt348
+    4300380: alt349
+    4300382: alt350
+    4300384: alt351
+    4300386: alt352
+    4300388: alt353
+    4300390: alt354
+    4300392: alt355
+    4300394: alt356
+    4300396: alt358
+    4300398: alt359
+    4300400: Turd
+    4300402: alt1
+    4300404: alt2
+    4300406: alt1
+    4300408: alt2
+    4300410: alt5
+    4300412: alt4
+    4300414: alt3
+    4300416: alt2
+    4300418: alt1
+    4300420: alt6
+    4300422: BrokenBrain
+    4300424: RedBloodCell
+    4300426: transp
+    4300428: base
+    4300430: transp
+    4300432: base
+    4300434: transp
+    4300436: base
+    4300438: base
+    4300440: base
+    4300442: base
+    4300444: base
+    4300446: base
+    4300448: base
+    4300450: base
+    4300452: base
+    4300454: base
+    4300456: transp
+    4300458: DblSided
+    4300460: light
+    4300462: base
+    4300464: base
+    4300466: base
+    4300468: base
+    4300470: alt572
+    4300472: alt573
+    4300474: base
+    4300476: base
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
