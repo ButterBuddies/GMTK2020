@@ -24,6 +24,11 @@ public class Attention : Item
     {
         // see if the cat has enter the collider.... 
         // if the cat starts to enter... or at least make it visible in the scene? Then go ahead and make it draw attention towards it.
-        Debug.Log($"{other.gameObject.name} has enter this {this.gameObject.name} trigger.");
+        Cat c = other.gameObject.GetComponent<Cat>();
+        if( c != null )
+        {
+            Debug.Log($"{other.gameObject.name} has enter this {this.gameObject.name} trigger.");
+            c.MoveTowards(this.gameObject);
+        }
     }
 }

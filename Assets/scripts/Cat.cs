@@ -50,9 +50,10 @@ public class Cat : MonoBehaviour
     {
         // in case of a laser pointer or some kind of target to
         CurrentBehavior = Behavior.Chase;
-        _suspectedTarget = obj;
-        _agent.SetDestination(obj.transform.position);
+        _suspectedTarget = obj; // do we still need this?
         _agent.speed = weightScale.Evaluate(weight) * ChaseSpeed;
+        _agent.SetDestination(obj.transform.position);
+        // why is this guy not going???
     }
 
     public void FleeFrom( GameObject obj )
@@ -114,23 +115,22 @@ public class Cat : MonoBehaviour
     {
         if (!ShowDebug) return;
         // Show the max area of which the range is given to the cat.
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, MaxRadius);
-        Gizmos.DrawWireSphere(transform.position, MinRadius);
+        //Gizmos.color = Color.green;
+        //Gizmos.DrawWireSphere(transform.position, MaxRadius);
+        //Gizmos.DrawWireSphere(transform.position, MinRadius);
 
         if ( _agent == null ) return;
+
+        Gizmos.DrawWireCube(_agent.destination, Vector3.one * 1f);
+
         Vector3[] v = _agent.path.corners;
         Gizmos.color = Color.yellow;
         if (v.Length == 1)
-        {
             Gizmos.DrawLine(this.transform.position, v[0]);
-        }
         else
         {
             for (int i = 1, n = v.Length - 1; i < n - 1; i++)
-            {
                 Gizmos.DrawLine(v[i - 1], v[i]);
-            }
         }
     }
 
