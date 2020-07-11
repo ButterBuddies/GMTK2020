@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3589907314224091888
 Transform:
@@ -146,6 +146,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliffBrown_half
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5a83b18afd65e204fad70a392b528a27,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a83b18afd65e204fad70a392b528a27, type: 3}
 --- !u!4 &3916813172068383394 stripped
@@ -230,6 +235,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cliffBrown_halfCorner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd08378e047e3084b9b44f980ed52bc0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd08378e047e3084b9b44f980ed52bc0, type: 3}
@@ -316,6 +326,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground_dirt
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c9b0a6a21ef61924fa92331d75e29bf2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9b0a6a21ef61924fa92331d75e29bf2, type: 3}
 --- !u!4 &3916813171743118397 stripped
@@ -401,6 +416,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliffBrown_halfCorner
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd08378e047e3084b9b44f980ed52bc0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd08378e047e3084b9b44f980ed52bc0, type: 3}
 --- !u!4 &3916813171557395572 stripped
@@ -475,6 +495,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cliffBrown_half (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5a83b18afd65e204fad70a392b528a27,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a83b18afd65e204fad70a392b528a27, type: 3}
@@ -561,6 +586,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliffBrown_halfCorner (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd08378e047e3084b9b44f980ed52bc0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd08378e047e3084b9b44f980ed52bc0, type: 3}
 --- !u!4 &3916813171466625359 stripped
@@ -645,6 +675,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cliffBrown_halfCornerInner
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ac4284e999129140b7ef25481dd0dc4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ac4284e999129140b7ef25481dd0dc4, type: 3}
@@ -731,6 +766,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliffBrown_halfCorner (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd08378e047e3084b9b44f980ed52bc0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd08378e047e3084b9b44f980ed52bc0, type: 3}
 --- !u!4 &3916813171337519472 stripped
@@ -815,6 +855,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cliffBrown_half (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5a83b18afd65e204fad70a392b528a27,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a83b18afd65e204fad70a392b528a27, type: 3}
@@ -901,6 +946,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliffBrown_halfCorner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd08378e047e3084b9b44f980ed52bc0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd08378e047e3084b9b44f980ed52bc0, type: 3}
 --- !u!4 &3916813170417091676 stripped
@@ -985,6 +1035,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cliffBrown_half (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5a83b18afd65e204fad70a392b528a27,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a83b18afd65e204fad70a392b528a27, type: 3}

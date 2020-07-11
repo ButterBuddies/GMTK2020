@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8768453863483247635}
+  - component: {fileID: 6753039080673510754}
   m_Layer: 0
   m_Name: long giant hill mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8768453863483247635
 Transform:
@@ -42,6 +43,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &6753039080673510754
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8768453863483247634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 28, y: 10, z: 30}
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!1001 &8768453861931417768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -119,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliffBrown_top (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ecefdfcd6072b454980e114491976d57,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecefdfcd6072b454980e114491976d57, type: 3}
 --- !u!4 &9089802445112895299 stripped
@@ -193,6 +212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cliffBrown_block
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee1f72cb017e4804fb4a9d6cd3da7557,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee1f72cb017e4804fb4a9d6cd3da7557, type: 3}
@@ -279,6 +303,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliffBrown_top (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ecefdfcd6072b454980e114491976d57,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecefdfcd6072b454980e114491976d57, type: 3}
 --- !u!4 &9089802444566509352 stripped
@@ -364,6 +393,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliffBrown_top (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ecefdfcd6072b454980e114491976d57,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecefdfcd6072b454980e114491976d57, type: 3}
 --- !u!4 &9089802444423196757 stripped
@@ -438,6 +472,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cliffBrown_block
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee1f72cb017e4804fb4a9d6cd3da7557,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee1f72cb017e4804fb4a9d6cd3da7557, type: 3}
@@ -514,6 +553,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliffBrown_block
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee1f72cb017e4804fb4a9d6cd3da7557,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee1f72cb017e4804fb4a9d6cd3da7557, type: 3}
 --- !u!4 &9089802444070826045 stripped
@@ -589,6 +633,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliffBrown_block
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee1f72cb017e4804fb4a9d6cd3da7557,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee1f72cb017e4804fb4a9d6cd3da7557, type: 3}
 --- !u!4 &9089802443859415156 stripped
@@ -663,6 +712,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cliffBrown_block
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee1f72cb017e4804fb4a9d6cd3da7557,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee1f72cb017e4804fb4a9d6cd3da7557, type: 3}
@@ -749,6 +803,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliffBrown_top (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ecefdfcd6072b454980e114491976d57,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecefdfcd6072b454980e114491976d57, type: 3}
 --- !u!4 &9089802443352075447 stripped
@@ -823,6 +882,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cliffBrown_block
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee1f72cb017e4804fb4a9d6cd3da7557,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee1f72cb017e4804fb4a9d6cd3da7557, type: 3}
@@ -909,6 +973,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliffBrown_top (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ecefdfcd6072b454980e114491976d57,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecefdfcd6072b454980e114491976d57, type: 3}
 --- !u!4 &9089802443113916164 stripped
@@ -993,6 +1062,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cliffBrown_top (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ecefdfcd6072b454980e114491976d57,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecefdfcd6072b454980e114491976d57, type: 3}
