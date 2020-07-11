@@ -38,10 +38,11 @@ public class Spawner : MonoBehaviour
         _t += Time.deltaTime;
         if (_t > _nextTarget)
         {
+            Debug.Log("spawned something");
             _t = 0;
             int t = Random.Range(0, Templates.Count);
             int p = Random.Range(0, SpawnerPoints.Count);
-            Instantiate(Templates[t], SpawnerPoints[p].transform);
+            Instantiate(Templates[t], SpawnerPoints[p].transform.position, Quaternion.identity);
             UpdateNextRandomTargetTimeToSpawn();
         }
     }

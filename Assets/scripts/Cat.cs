@@ -219,7 +219,7 @@ public class Cat : MonoBehaviour
         //May want to only have cats interact with food in certain states, like "Hungry" and not "Scared"
         if (other.GetComponent<Food>())
         {
-            Debug.Log("Cat found some food");
+            //Debug.Log("Cat found some food");
             other.GetComponent<Food>().Eaten(0.1f);
         }
     }
