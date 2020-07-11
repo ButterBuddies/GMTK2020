@@ -8,6 +8,9 @@ public class PickupAble : MonoBehaviour
     public Collider col;
     public Collider trigger;
     public Rigidbody rb;
+    private PlayerController player;
+    public Attention attention;
+    public Threat threat;
 
     bool held;
 
@@ -18,7 +21,7 @@ public class PickupAble : MonoBehaviour
     
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("pickup touched something: " + other.name);
+        //Debug.Log("pickup touched something: " + other.name);
 
         if (other.gameObject.tag == "Player")
         {   //If player touches this pickup, it gets added to their inventory
@@ -30,6 +33,7 @@ public class PickupAble : MonoBehaviour
                 transform.SetParent(other.GetComponent<PlayerController>().holdingPos);
                 held = true;
                 other.GetComponent<PlayerController>().HoldItem(this.gameObject);
+                player = other.GetComponent<PlayerController>();
             }
         }
     }
@@ -43,11 +47,9 @@ public class PickupAble : MonoBehaviour
         }
     }
 
-
-
     public void Use()
     {
-        Debug.Log("used item");
+        //Debug.Log("used item");
         held = false;
         col.enabled = true;
         //rb.isKinematic = true;
@@ -55,10 +57,29 @@ public class PickupAble : MonoBehaviour
         transform.SetParent(null);
         trigger.enabled = false;
         Invoke("EnableTrigger", 2);
+        rb.AddForce(player.transform.forward * 1000, ForceMode.Force);
+
+        if (attention != null)
+        {
+            attention.enabled = true;
+            //Invoke("DisableAttention", 5);
+        }
+
+        if (threat != null)
+        {
+            threat.enabled = true;
+            //Invoke("DisableAttention", 5);
+        }
+
     }
 
+    public void DisableAttention()
+    {
+        attention.enabled = false;
+    }
     public void EnableTrigger()
     {
         trigger.enabled = true;
+        
     }
 }
