@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -51,7 +52,7 @@ public class Cat : MonoBehaviour
         // in case of a laser pointer or some kind of target to
         CurrentBehavior = Behavior.Chase;
         _suspectedTarget = obj; // do we still need this?
-        _agent.speed = weightScale.Evaluate(weight) * ChaseSpeed;
+        _agent.speed = weightScale.Evaluate(weight) * ChaseSpeed;   // wha??
         _agent.SetDestination(obj.transform.position);
         // why is this guy not going???
     }
@@ -67,12 +68,21 @@ public class Cat : MonoBehaviour
         StartCoroutine(PseudoUpdate());
     }
 
-    public void Feed(Food food)
+    public void Feed(Item item)
     {
         // feed a cat based on the items?
-        foodConsumption += food.ConsumeRate;
-        foodConsumption = Mathf.Clamp01(foodConsumption);
-        CurrentBehavior = Behavior.Idle;
+        if(item is Food food)
+        {
+            foodConsumption += food.ConsumeRate;
+            foodConsumption = Mathf.Clamp01(foodConsumption);
+            CurrentBehavior = Behavior.Idle;
+        }
+        else if( item is Attention attention)
+        {
+            // assuming we're hitting some kind of object that can be fed... we still need to get the stuff out.
+
+        }
+        
     }
 
     /// <summary>
@@ -83,7 +93,7 @@ public class Cat : MonoBehaviour
     {
         // invoke the cat somehow? and how does the cat behaves to this reaction.
         // this will be a chances to either fight or flee...
-        float t = Random.Range(0, 3);
+        float t = UnityEngine.Random.Range(0, 3);
         
         // could be Chase, Flee, or Idle (Frozen)...
         switch( Mathf.Round(t))
@@ -105,10 +115,14 @@ public class Cat : MonoBehaviour
 
     #region Behavior engine
 
-    private void Start()
+    private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _timeToChangeDirection = Random.Range(MinTimeToChangeDecision, MaxTimeToChangeDecision);
+    }
+
+    private void Start()
+    {
+        _timeToChangeDirection = UnityEngine.Random.Range(MinTimeToChangeDecision, MaxTimeToChangeDecision);
     }
 
     private void OnDrawGizmosSelected()
@@ -139,7 +153,7 @@ public class Cat : MonoBehaviour
     {
         switch (CurrentBehavior)
         {
-            case Behavior.Chase: break;
+            case Behavior.Chase: ChaseObject();  break;
             case Behavior.Flee: break;
             case Behavior.Freeze: break;
             case Behavior.Idle: IdleRandomBehavior(); break;
@@ -148,13 +162,19 @@ public class Cat : MonoBehaviour
         }  
     }
 
+    private void ChaseObject()
+    {
+        if (_suspectedTarget != null)
+            _agent.destination = _suspectedTarget.transform.position;
+    }
+
     private void IdleRandomBehavior()
     {
         _t += Time.deltaTime;
 
         if (_timeToChangeDirection < _t)
         {
-            _timeToChangeDirection = Random.Range(MinTimeToChangeDecision, MaxTimeToChangeDecision);
+            _timeToChangeDirection = UnityEngine.Random.Range(MinTimeToChangeDecision, MaxTimeToChangeDecision);
             _t = 0;
             // somehow we're going to randomized the cat's behavior here?
             //float i = Random.Range(0, 2);
@@ -165,8 +185,8 @@ public class Cat : MonoBehaviour
             //else
             //{
             // let's make it interesting? Let's find a marker somewhere on the map and pick it random?
-            float x = Mathf.Sin(Random.Range(-360.0f, 360.0f)) * Random.Range(MinRadius, MaxRadius) + transform.position.x;
-            float z = Mathf.Cos(Random.Range(-360.0f, 360.0f)) * Random.Range(MinRadius, MaxRadius) + transform.position.z;
+            float x = Mathf.Sin(UnityEngine.Random.Range(-360.0f, 360.0f)) * UnityEngine.Random.Range(MinRadius, MaxRadius) + transform.position.x;
+            float z = Mathf.Cos(UnityEngine.Random.Range(-360.0f, 360.0f)) * UnityEngine.Random.Range(MinRadius, MaxRadius) + transform.position.z;
             Vector3 dir = new Vector3(x, this.transform.position.y, z);
             //CurrentBehavior = Behavior.Chase;
             // in this case we want the cat to be just walking.... instead of chasing?

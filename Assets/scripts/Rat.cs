@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(HealthBar))]
 public class Rat : Attention
 {
     public float NormalSpeed = 10f;
@@ -25,10 +27,13 @@ public class Rat : Attention
     private float _t;
     private float _wanderTarget;
     private Vector3 _wanderDir = Vector3.zero;
+    private HealthBar _healthBar;
+
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawSphere(_wanderDir, 1f);
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(SafeDirection(), 1f);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.transform.position, AlertRadius);
         RaycastHit[] hits = Physics.SphereCastAll(this.transform.position, Radius, Vector3.down);
@@ -54,7 +59,7 @@ public class Rat : Attention
                 c.MoveTowards(this.gameObject);
             }
         }
-
+        _healthBar = GetComponent<HealthBar>();
         _agent = GetComponent<NavMeshAgent>();
         _agent.speed = NormalSpeed;
         _wanderTarget = UnityEngine.Random.Range(WanderRange.x, WanderRange.y);
@@ -118,9 +123,7 @@ public class Rat : Attention
     public bool IsThreaten()
     {
         // Gene and Sarah, forgive me on this lol.
-        var d = _nearbyCats.Where(x => CheapDist(x.transform.position, transform.position, AlertRadius));
-        Debug.Log(d.Count());
-        return d.Any();
+        return _nearbyCats.Where(x => CheapDist(x.transform.position, transform.position, AlertRadius)).Any();
         //for (int i = 0, n = _nearbyCats.Count; i < n; i++)
         //{
         //    if (CheapDist(transform.position, _nearbyCats[i].gameObject.transform.position, AlertRadius))
@@ -194,7 +197,6 @@ public class Rat : Attention
     {
         // so... if a collder is a cat, we need to add them to the list.
         Cat c = other.gameObject.GetComponent<Cat>();
-        Debug.Log($"{other.gameObject.name} has enter the triggered. {c}");
         if( c != null )
         {
             _nearbyCats.Add(c);
@@ -208,6 +210,26 @@ public class Rat : Attention
         if( c != null )
         {
             _nearbyCats.Remove(c);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Cat c = collision.gameObject.GetComponent<Cat>();
+        if( c != null )
+        {
+            Debug.Log("AHH I'VE BEEN CONSUMED!");
+            c.Feed(this);
+            // just for example right now
+            _healthBar.InflictDamage(15);
+            return;
+        }
+
+        // If the player suddenly were to run over the rats... splat them.
+        FirstPersonController fpcontroller = collision.transform.GetComponent<FirstPersonController>();
+        if (fpcontroller != null && fpcontroller.m_MoveDir != Vector3.zero)
+        {
+            _healthBar.Oblierated();
         }
     }
 }
