@@ -15,6 +15,7 @@ public class Rat : Attention
     public float AlertSpeed = 30f;
     public float AlertRadius = 10f;
     public float UpdateRate = 0.2f;
+    public float FleeDistance = 20f;
     [SerializeField]
     public Vector2 WanderRange;
 
@@ -33,7 +34,7 @@ public class Rat : Attention
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawSphere(SafeDirection(), 1f);
+        Gizmos.DrawSphere(Evading(), 10f);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.transform.position, AlertRadius);
         RaycastHit[] hits = Physics.SphereCastAll(this.transform.position, Radius, Vector3.down);
@@ -136,23 +137,25 @@ public class Rat : Attention
         return _nearbyCats.Where(x => CheapDist(x.transform.position, transform.position, AlertRadius)).Any();
     }
 
-    private Vector3 SafeDirection()
+    private Vector3 Evading()
     {
         Vector3 dir = Vector3.zero;
         // if the array list 
         if (_nearbyCats.Count == 0) return dir;
         // sum all nearby cat position
-        _nearbyCats.ForEach(x=>dir+=x.transform.position);
-        // divided it by the number of count for average danger position.
+        _nearbyCats.ForEach( x => dir += x.transform.position );
+        // Divide the sum of dir to the total count of cats.
         dir /= _nearbyCats.Count;
-        // subtract that by current player position to find the direction, then invert it.
-        dir -= transform.position;
+        // subtract average herd of cats by rat position to find the direction.
+        dir = ( dir - transform.position ).normalized * AlertRadius;
         // return the inverse direction of which the rat needs to flee safely.
-        return -dir * 20f + transform.position;
+        return -dir * FleeDistance + transform.position;
     }    
 
     private void PseudoUpdate()
     {
+        if (_healthBar.state == HealthBar.State.Dead)
+            return;
         switch( state )
         {
             case State.Wander: WanderCondition(); break;
@@ -173,7 +176,7 @@ public class Rat : Attention
         else
         {
             if( _t > UpdateRate)
-            _agent.destination = SafeDirection();
+            _agent.destination = Evading();
         }
     }
 
@@ -222,7 +225,6 @@ public class Rat : Attention
         Cat c = collision.gameObject.GetComponent<Cat>();
         if( c != null )
         {
-            Debug.Log("AHH I'VE BEEN CONSUMED!");
             c.Feed(this);
             // just for example right now
             _healthBar.InflictDamage(15);

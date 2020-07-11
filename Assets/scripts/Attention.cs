@@ -18,7 +18,7 @@ public class Attention : Item
     private void Start()
     {
         _sphereCol = GetComponent<SphereCollider>();
-        _sphereCol.radius = Radius;
+        _sphereCol.radius = Radius; // so why is this guy not working?
         _sphereCol.isTrigger = true;
     }
 
