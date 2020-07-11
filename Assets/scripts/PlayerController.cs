@@ -24,16 +24,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void DropItem()
+    public void UseItem()
     {
-        if (!heldItem)
+        Debug.Log("got in use item");
+        if (heldItem != null)
         {
+            heldItem.GetComponent<PickupAble>().Use();
             //use the item if holding one
+            heldItem = null;
         }
     }
 
     public void FixedUpdate()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (heldItem != null)
+                UseItem();
+        }
     }
 }
