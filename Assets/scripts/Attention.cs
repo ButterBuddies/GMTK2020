@@ -8,15 +8,17 @@ public class Attention : Item
 {
     // Start is called before the first frame update
     public float timeDuration = 10f;
-    public float Magntitude = 10f;
+    [Range(0,1)]
+    public float Threshold = 0.5f;
     public float Radius = 10f;
 
+    //hmm interesting?
     private SphereCollider _sphereCol;
 
     private void Start()
     {
         _sphereCol = GetComponent<SphereCollider>();
-        _sphereCol.radius = Radius;
+        _sphereCol.radius = Radius; // so why is this guy not working?
         _sphereCol.isTrigger = true;
     }
 
@@ -27,7 +29,7 @@ public class Attention : Item
         Cat c = other.gameObject.GetComponent<Cat>();
         if( c != null )
         {
-            Debug.Log($"{other.gameObject.name} has enter this {this.gameObject.name} trigger.");
+            //Debug.Log($"{other.gameObject.name} has enter this {this.gameObject.name} trigger.");
             c.MoveTowards(this.gameObject);
         }
     }

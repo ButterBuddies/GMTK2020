@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7fad3da07df51934eaefa50f58d4ad7a
   - enabled: 1
-    path: Assets/Scenes/JordanSceneWithHorse.unity
-    guid: 1eb5f8085abc6e449870537c1cc905b6
+    path: Assets/Scenes/SensitivityTest.unity
+    guid: 63ca68efef000f94888e59869f100b48
   m_configObjects: {}

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,16 +7,31 @@ using UnityEngine.AI;
 public class Cat : MonoBehaviour
 {
     #region variables
+
+    /*
+     * The hungry script
+     * When the cat moves or finds interesting object, they will lose weight over the time
+     * When the cat becomes too hungry, they will become influence by the food more than attention
+     * if the cat becoming too full, they will try to play and chase after some things.
+     * 
+     * Quite a interesting balance as all life should be... #Thanos
+     */
+
+
     public enum Behavior { Flee, Chase, Idle, Freeze }
-    //public enum Emotion { Lonely, Scared, Happy, Clean, Scout, Sleep, Eating}
+    //public enum Emotion { Lonely, Scared, Happy, Clean, Scout, Sleep, Eating }
 
     // in this case we can determine the shape and size of a cat object.
     public float NormalSpeed = 15f;
+    public float NormalWeightDeduction = 0.01f;
     public float FleeSpeed = 50f;
+    public float FleeWeightDeduction = 0.02f;
     public float ChaseSpeed = 35f;
+    public float ChaseWeightDeduction = 0.04f;
 
-    // if the cat weights gets too much, then thespeed of the cat and the emotion of the cat gets inflicted. 
-    public float weight = 1f;
+    // if the cat weights gets too much, then thespeed of the cat and the emotion of the cat gets inflicted.
+    [Range(0,1)]
+    public float weight = 0.5f;
     public AnimationCurve weightScale = new AnimationCurve();
 
     // Time it takes for cat to change it's behavior decisions beacse you know.. cats get weird and strange to predict?
@@ -40,39 +56,63 @@ public class Cat : MonoBehaviour
     private GameObject _suspectedTarget;
     private NavMeshAgent _agent;
     private float _t = 0;
+    private float _currentWeightDeduction = 0;
+    private float _speedMagnitude = 0;
 
     public bool ShowDebug = false;
+
+    public Material[] mats;
+    public Renderer TargetRender;
+
+    public Material[] matsEyes;
+    public Renderer EyeRender;
+
 
     #endregion
 
     #region Implementations
     public void MoveTowards( GameObject obj )
     {
+        // I'm already chasing!! Go away!
+        if (CurrentBehavior == ( Behavior.Chase | Behavior.Flee ) ) return;
         // in case of a laser pointer or some kind of target to
         CurrentBehavior = Behavior.Chase;
-        _suspectedTarget = obj; // do we still need this?
-        _agent.speed = weightScale.Evaluate(weight) * ChaseSpeed;
+        _currentWeightDeduction = ChaseWeightDeduction;
+        _suspectedTarget = obj;
+        _speedMagnitude = ChaseSpeed;  
         _agent.SetDestination(obj.transform.position);
-        // why is this guy not going???
     }
 
     public void FleeFrom( GameObject obj )
     {
         CurrentBehavior = Behavior.Flee;
         _suspectedTarget = obj;
+        _currentWeightDeduction = FleeWeightDeduction;
         Vector3 newDir = ( this.transform.position - obj.transform.position) * MaxRadius + this.transform.position;
-        _agent.speed = weightScale.Evaluate(weight) * FleeSpeed;
+        _speedMagnitude = FleeSpeed;
         _agent.SetDestination(newDir);
         StopCoroutine(PseudoUpdate());
         StartCoroutine(PseudoUpdate());
     }
 
-    public void Feed(Food food)
+    public void Feed(Item item)
     {
         // feed a cat based on the items?
-        foodConsumption += food.ConsumeRate;
-        foodConsumption = Mathf.Clamp01(foodConsumption);
-        CurrentBehavior = Behavior.Idle;
+        switch( item )
+        {
+            case Food food:
+                {
+                    foodConsumption += food.ConsumeRate;
+                    foodConsumption = Mathf.Clamp01(foodConsumption);
+                    CurrentBehavior = Behavior.Idle;
+                    break;
+                }
+            case Attention attention:
+                {
+
+                    break;
+                }
+        }
     }
 
     /// <summary>
@@ -83,7 +123,7 @@ public class Cat : MonoBehaviour
     {
         // invoke the cat somehow? and how does the cat behaves to this reaction.
         // this will be a chances to either fight or flee...
-        float t = Random.Range(0, 3);
+        float t = UnityEngine.Random.Range(0, 3);
         
         // could be Chase, Flee, or Idle (Frozen)...
         switch( Mathf.Round(t))
@@ -105,20 +145,33 @@ public class Cat : MonoBehaviour
 
     #region Behavior engine
 
-    private void Start()
+    private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _timeToChangeDirection = Random.Range(MinTimeToChangeDecision, MaxTimeToChangeDecision);
+        if(mats.Length > 0 && TargetRender != null )
+        {
+            int i = UnityEngine.Random.Range(0, mats.Length);
+            TargetRender.material = mats[i];
+        }
+
+        if( matsEyes.Length > 0 && EyeRender != null )
+        {
+            int i = UnityEngine.Random.Range(0, matsEyes.Length);
+            EyeRender.material = matsEyes[i];
+        }
+        weight = UnityEngine.Random.Range(0.0f,1.1f);
+        _currentWeightDeduction = NormalWeightDeduction;
+        _speedMagnitude = NormalSpeed;
+    }
+
+    private void Start()
+    {
+        _timeToChangeDirection = UnityEngine.Random.Range(MinTimeToChangeDecision, MaxTimeToChangeDecision);
     }
 
     private void OnDrawGizmosSelected()
     {
         if (!ShowDebug) return;
-        // Show the max area of which the range is given to the cat.
-        //Gizmos.color = Color.green;
-        //Gizmos.DrawWireSphere(transform.position, MaxRadius);
-        //Gizmos.DrawWireSphere(transform.position, MinRadius);
-
         if ( _agent == null ) return;
 
         Gizmos.DrawWireCube(_agent.destination, Vector3.one * 1f);
@@ -126,7 +179,7 @@ public class Cat : MonoBehaviour
         Vector3[] v = _agent.path.corners;
         Gizmos.color = Color.yellow;
         if (v.Length == 1)
-            Gizmos.DrawLine(this.transform.position, v[0]);
+            Gizmos.DrawLine(this.transform.position, _agent.destination);
         else
         {
             for (int i = 1, n = v.Length - 1; i < n - 1; i++)
@@ -139,13 +192,35 @@ public class Cat : MonoBehaviour
     {
         switch (CurrentBehavior)
         {
-            case Behavior.Chase: break;
+            case Behavior.Chase: ChaseObject();  break;
             case Behavior.Flee: break;
             case Behavior.Freeze: break;
             case Behavior.Idle: IdleRandomBehavior(); break;
             default: // hmm you did something wrong to make this happen shame on you and yoru code design... 
                 break;
-        }  
+        }
+        
+        weight -= Time.fixedDeltaTime * _currentWeightDeduction * _agent.velocity.normalized.magnitude;
+        weight = Mathf.Clamp01(weight);
+        _agent.speed = weightScale.Evaluate(weight) * _speedMagnitude;
+    }
+
+    private void ChaseObject()
+    {
+        if ( _suspectedTarget != null )
+        {
+            if (!_suspectedTarget.activeSelf)
+                _suspectedTarget = null;
+            else
+                _agent.destination = _suspectedTarget.transform.position;
+            weight -= ChaseWeightDeduction * Time.deltaTime;
+        }
+        else
+        {
+            CurrentBehavior = Behavior.Idle;
+            _currentWeightDeduction = NormalWeightDeduction;
+            _speedMagnitude = NormalSpeed;
+        }
     }
 
     private void IdleRandomBehavior()
@@ -154,7 +229,7 @@ public class Cat : MonoBehaviour
 
         if (_timeToChangeDirection < _t)
         {
-            _timeToChangeDirection = Random.Range(MinTimeToChangeDecision, MaxTimeToChangeDecision);
+            _timeToChangeDirection = UnityEngine.Random.Range(MinTimeToChangeDecision, MaxTimeToChangeDecision);
             _t = 0;
             // somehow we're going to randomized the cat's behavior here?
             //float i = Random.Range(0, 2);
@@ -165,8 +240,8 @@ public class Cat : MonoBehaviour
             //else
             //{
             // let's make it interesting? Let's find a marker somewhere on the map and pick it random?
-            float x = Mathf.Sin(Random.Range(-360.0f, 360.0f)) * Random.Range(MinRadius, MaxRadius) + transform.position.x;
-            float z = Mathf.Cos(Random.Range(-360.0f, 360.0f)) * Random.Range(MinRadius, MaxRadius) + transform.position.z;
+            float x = Mathf.Sin(UnityEngine.Random.Range(-360.0f, 360.0f)) * UnityEngine.Random.Range(MinRadius, MaxRadius) + transform.position.x;
+            float z = Mathf.Cos(UnityEngine.Random.Range(-360.0f, 360.0f)) * UnityEngine.Random.Range(MinRadius, MaxRadius) + transform.position.z;
             Vector3 dir = new Vector3(x, this.transform.position.y, z);
             //CurrentBehavior = Behavior.Chase;
             // in this case we want the cat to be just walking.... instead of chasing?
@@ -185,16 +260,30 @@ public class Cat : MonoBehaviour
         StartCoroutine(PseudoUpdate());
     }
 
+    // Hmm might need to edit this later... or somehow?
     IEnumerator PseudoUpdate()
     {
         yield return new WaitForSeconds(0);
-        
-        if (CurrentBehavior == Behavior.Flee && _agent.isActiveAndEnabled && _agent.isStopped )
+
+        if (CurrentBehavior == Behavior.Flee && _agent.isActiveAndEnabled && _agent.isStopped)
+        {
             CurrentBehavior = Behavior.Idle;
+            _speedMagnitude = NormalSpeed;
+            _currentWeightDeduction = NormalWeightDeduction;
+        }
 
         yield return new WaitForSeconds(0.5f);
     }
 
+    public void OnTriggerStay(Collider other)
+    {
+        //May want to only have cats interact with food in certain states, like "Hungry" and not "Scared"
+        if (other.GetComponent<Food>())
+        {
+            //Debug.Log("Cat found some food");
+            other.GetComponent<Food>().Eaten(0.1f);
+        }
+    }
 
     #endregion
 }
