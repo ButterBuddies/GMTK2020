@@ -113,23 +113,27 @@ public class Rat : Attention
         return wanderForce;
     }
 
+    /// <summary>
+    /// Because Gene wants to learn more about this function here you go! lol.
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <param name="d"></param>
+    /// <returns></returns>
     private bool CheapDist(Vector2 a, Vector2 b, float d )
     {
         // instead of using the expensive function of square root, we'll square them all and compare the result instead.
         return d * d > ( a.x - b.x ) * ( a.x - b.x ) + ( a.y - b.y ) * ( a.y - b.y );
     }
 
-    // check the distance of nearby cat and determine if the rat is threaten or not.
+    /// <summary>
+    ///  check the distance of nearby cat and determine if the rat is threaten or not.
+    /// </summary>
+    /// <returns></returns>
     public bool IsThreaten()
     {
         // Gene and Sarah, forgive me on this lol.
         return _nearbyCats.Where(x => CheapDist(x.transform.position, transform.position, AlertRadius)).Any();
-        //for (int i = 0, n = _nearbyCats.Count; i < n; i++)
-        //{
-        //    if (CheapDist(transform.position, _nearbyCats[i].gameObject.transform.position, AlertRadius))
-        //        return true;
-        //}
-        //return false;
     }
 
     private Vector3 SafeDirection()

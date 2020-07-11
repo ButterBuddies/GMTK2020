@@ -49,12 +49,13 @@ public class Cat : MonoBehaviour
     #region Implementations
     public void MoveTowards( GameObject obj )
     {
+        // I'm already chasing!! Go away!
+        if (CurrentBehavior == ( Behavior.Chase | Behavior.Flee ) ) return;
         // in case of a laser pointer or some kind of target to
         CurrentBehavior = Behavior.Chase;
         _suspectedTarget = obj; // do we still need this?
         _agent.speed = weightScale.Evaluate(weight) * ChaseSpeed;   // wha??
         _agent.SetDestination(obj.transform.position);
-        // why is this guy not going???
     }
 
     public void FleeFrom( GameObject obj )
@@ -71,16 +72,20 @@ public class Cat : MonoBehaviour
     public void Feed(Item item)
     {
         // feed a cat based on the items?
-        if(item is Food food)
+        switch( item )
         {
-            foodConsumption += food.ConsumeRate;
-            foodConsumption = Mathf.Clamp01(foodConsumption);
-            CurrentBehavior = Behavior.Idle;
-        }
-        else if( item is Attention attention)
-        {
-            // assuming we're hitting some kind of object that can be fed... we still need to get the stuff out.
+            case Food food:
+                {
+                    foodConsumption += food.ConsumeRate;
+                    foodConsumption = Mathf.Clamp01(foodConsumption);
+                    CurrentBehavior = Behavior.Idle;
+                    break;
+                }
+            case Attention attention:
+                {
 
+                    break;
+                }
         }
     }
 
@@ -163,8 +168,17 @@ public class Cat : MonoBehaviour
 
     private void ChaseObject()
     {
-        if (_suspectedTarget != null)
-            _agent.destination = _suspectedTarget.transform.position;
+        if ( _suspectedTarget != null )
+        {
+            if (!_suspectedTarget.activeSelf)
+                _suspectedTarget = null;
+            else
+                _agent.destination = _suspectedTarget.transform.position;
+        }
+        else
+        {
+            CurrentBehavior = Behavior.Idle;
+        }
     }
 
     private void IdleRandomBehavior()
@@ -204,11 +218,12 @@ public class Cat : MonoBehaviour
         StartCoroutine(PseudoUpdate());
     }
 
+    // Hmm might need to edit this later... or somehow?
     IEnumerator PseudoUpdate()
     {
         yield return new WaitForSeconds(0);
         
-        if (CurrentBehavior == Behavior.Flee && _agent.isActiveAndEnabled && _agent.isStopped )
+        if ( CurrentBehavior == Behavior.Flee && _agent.isActiveAndEnabled && _agent.isStopped )
             CurrentBehavior = Behavior.Idle;
 
         yield return new WaitForSeconds(0.5f);
