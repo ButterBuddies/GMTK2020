@@ -7,16 +7,31 @@ using UnityEngine.AI;
 public class Cat : MonoBehaviour
 {
     #region variables
+
+    /*
+     * The hungry script
+     * When the cat moves or finds interesting object, they will lose weight over the time
+     * When the cat becomes too hungry, they will become influence by the food more than attention
+     * if the cat becoming too full, they will try to play and chase after some things.
+     * 
+     * Quite a interesting balance as all life should be... #Thanos
+     */
+
+
     public enum Behavior { Flee, Chase, Idle, Freeze }
-    //public enum Emotion { Lonely, Scared, Happy, Clean, Scout, Sleep, Eating}
+    //public enum Emotion { Lonely, Scared, Happy, Clean, Scout, Sleep, Eating }
 
     // in this case we can determine the shape and size of a cat object.
     public float NormalSpeed = 15f;
+    public float NormalWeightDeduction = 0.01f;
     public float FleeSpeed = 50f;
+    public float FleeWeightDeduction = 0.02f;
     public float ChaseSpeed = 35f;
+    public float ChaseWeightDeduction = 0.04f;
 
-    // if the cat weights gets too much, then thespeed of the cat and the emotion of the cat gets inflicted. 
-    public float weight = 1f;
+    // if the cat weights gets too much, then thespeed of the cat and the emotion of the cat gets inflicted.
+    [Range(0,1)]
+    public float weight = 0.5f;
     public AnimationCurve weightScale = new AnimationCurve();
 
     // Time it takes for cat to change it's behavior decisions beacse you know.. cats get weird and strange to predict?
@@ -41,6 +56,8 @@ public class Cat : MonoBehaviour
     private GameObject _suspectedTarget;
     private NavMeshAgent _agent;
     private float _t = 0;
+    private float _currentWeightDeduction = 0;
+    private float _speedMagnitude = 0;
 
     public bool ShowDebug = false;
 
@@ -60,8 +77,9 @@ public class Cat : MonoBehaviour
         if (CurrentBehavior == ( Behavior.Chase | Behavior.Flee ) ) return;
         // in case of a laser pointer or some kind of target to
         CurrentBehavior = Behavior.Chase;
-        _suspectedTarget = obj; // do we still need this?
-        _agent.speed = weightScale.Evaluate(weight) * ChaseSpeed;   // wha??
+        _currentWeightDeduction = ChaseWeightDeduction;
+        _suspectedTarget = obj;
+        _speedMagnitude = ChaseSpeed;  
         _agent.SetDestination(obj.transform.position);
     }
 
@@ -69,8 +87,9 @@ public class Cat : MonoBehaviour
     {
         CurrentBehavior = Behavior.Flee;
         _suspectedTarget = obj;
+        _currentWeightDeduction = FleeWeightDeduction;
         Vector3 newDir = ( this.transform.position - obj.transform.position) * MaxRadius + this.transform.position;
-        _agent.speed = weightScale.Evaluate(weight) * FleeSpeed;
+        _speedMagnitude = FleeSpeed;
         _agent.SetDestination(newDir);
         StopCoroutine(PseudoUpdate());
         StartCoroutine(PseudoUpdate());
@@ -140,6 +159,9 @@ public class Cat : MonoBehaviour
             int i = UnityEngine.Random.Range(0, matsEyes.Length);
             EyeRender.material = matsEyes[i];
         }
+        weight = UnityEngine.Random.Range(0.0f,1.1f);
+        _currentWeightDeduction = NormalWeightDeduction;
+        _speedMagnitude = NormalSpeed;
     }
 
     private void Start()
@@ -150,11 +172,6 @@ public class Cat : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         if (!ShowDebug) return;
-        // Show the max area of which the range is given to the cat.
-        //Gizmos.color = Color.green;
-        //Gizmos.DrawWireSphere(transform.position, MaxRadius);
-        //Gizmos.DrawWireSphere(transform.position, MinRadius);
-
         if ( _agent == null ) return;
 
         Gizmos.DrawWireCube(_agent.destination, Vector3.one * 1f);
@@ -162,7 +179,7 @@ public class Cat : MonoBehaviour
         Vector3[] v = _agent.path.corners;
         Gizmos.color = Color.yellow;
         if (v.Length == 1)
-            Gizmos.DrawLine(this.transform.position, v[0]);
+            Gizmos.DrawLine(this.transform.position, _agent.destination);
         else
         {
             for (int i = 1, n = v.Length - 1; i < n - 1; i++)
@@ -181,7 +198,11 @@ public class Cat : MonoBehaviour
             case Behavior.Idle: IdleRandomBehavior(); break;
             default: // hmm you did something wrong to make this happen shame on you and yoru code design... 
                 break;
-        }  
+        }
+        
+        weight -= Time.fixedDeltaTime * _currentWeightDeduction * _agent.velocity.normalized.magnitude;
+        weight = Mathf.Clamp01(weight);
+        _agent.speed = weightScale.Evaluate(weight) * _speedMagnitude;
     }
 
     private void ChaseObject()
@@ -192,10 +213,13 @@ public class Cat : MonoBehaviour
                 _suspectedTarget = null;
             else
                 _agent.destination = _suspectedTarget.transform.position;
+            weight -= ChaseWeightDeduction * Time.deltaTime;
         }
         else
         {
             CurrentBehavior = Behavior.Idle;
+            _currentWeightDeduction = NormalWeightDeduction;
+            _speedMagnitude = NormalSpeed;
         }
     }
 
@@ -240,9 +264,13 @@ public class Cat : MonoBehaviour
     IEnumerator PseudoUpdate()
     {
         yield return new WaitForSeconds(0);
-        
-        if ( CurrentBehavior == Behavior.Flee && _agent.isActiveAndEnabled && _agent.isStopped )
+
+        if (CurrentBehavior == Behavior.Flee && _agent.isActiveAndEnabled && _agent.isStopped)
+        {
             CurrentBehavior = Behavior.Idle;
+            _speedMagnitude = NormalSpeed;
+            _currentWeightDeduction = NormalWeightDeduction;
+        }
 
         yield return new WaitForSeconds(0.5f);
     }
