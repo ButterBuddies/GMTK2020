@@ -1591,7 +1591,7 @@ MonoBehaviour:
   Radius: 61.8
   NormalSpeed: 5
   AlertSpeed: 300
-  AlertRadius: 10
+  AlertRadius: 40
   UpdateRate: 0.05
   WanderRange: {x: 1, y: 10}
   state: 0
