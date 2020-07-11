@@ -7075,10 +7075,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 47651574, guid: a80247af680171940acf2c29a474e33b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 641755724714142240, guid: a80247af680171940acf2c29a474e33b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7138,26 +7134,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 641755724716961760, guid: a80247af680171940acf2c29a474e33b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 641755724720047072, guid: a80247af680171940acf2c29a474e33b,
-        type: 3}
-      propertyPath: m_WalkSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 641755724720047072, guid: a80247af680171940acf2c29a474e33b,
-        type: 3}
-      propertyPath: m_RunSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 641755724720047072, guid: a80247af680171940acf2c29a474e33b,
-        type: 3}
-      propertyPath: m_UseFovKick
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a80247af680171940acf2c29a474e33b, type: 3}
@@ -14249,26 +14225,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1077947132}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2105202369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105202362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2916642fd5098940886f786d065510d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensitivitySlider: {fileID: 2100349192}
-  clampInDegrees: {x: 360, y: 135}
-  lockCursor: 0
-  sensitivity: {x: 2, y: 2}
-  smoothing: {x: 3, y: 3}
-  targetDirection: {x: 0, y: 0}
-  targetCharacterDirection: {x: 0, y: 0}
-  characterBody: {fileID: 0}
 --- !u!1001 &2120343742
 PrefabInstance:
   m_ObjectHideFlags: 0
