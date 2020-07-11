@@ -6,7 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     public Transform holdingPos;
     public GameObject heldItem;
-    
+    public Transform lassoStartPoint;
+    public LineRenderer lassoLine;
+    public Transform lassoEndPoint;
 
     public bool HandsFull()
     {
@@ -35,12 +37,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void FixedUpdate()
+    public void Lasso()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        lassoLine.enabled = true;
+        lassoLine.SetPosition(0, lassoStartPoint.position);
+        lassoLine.SetPosition(1, lassoEndPoint.position);
+    }
+
+    public void HideLasso()
+    {
+        lassoLine.enabled = false;
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (heldItem != null)
                 UseItem();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            //if (heldItem != null)
+            Lasso();
+            Invoke("HideLasso", .5f);
         }
     }
 }

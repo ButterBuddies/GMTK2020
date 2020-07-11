@@ -18,6 +18,7 @@ public class Threat : Item
     /// </summary>
     public void Scare()
     {
+        //Debug.Log("got in scare");
         RaycastHit[] hit = Physics.SphereCastAll(this.transform.position, Radius, Vector3.down );
         foreach( RaycastHit h in hit )
         {
@@ -27,7 +28,7 @@ public class Threat : Item
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerStay(Collider collision)
     {
         if (_t > 0) return;
         Scare();
