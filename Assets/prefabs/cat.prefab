@@ -108,16 +108,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 536aa96b18ec1084fbeb9eab69324d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  weight: 1
-  MaxTimeToChangeDecision: 10
+  NormalSpeed: 30
+  FleeSpeed: 300
+  ChaseSpeed: 100
+  weight: 0.5
+  weightScale:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.369893
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5181512
+      value: 0.99894667
+      inSlope: -0.017663723
+      outSlope: -0.017663723
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.37277
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.2169838
+      inSlope: -0.6837024
+      outSlope: -0.6837024
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2853592
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  MaxTimeToChangeDecision: 3
   MinTimeToChangeDecision: 1
   foodConsumption: 0.5
-  MaxRadius: 81.15
-  MinRadius: 3.01
+  MaxRadius: 30
+  MinRadius: 2.5
   CurrentBehavior: 2
   AttentionSpan: 10
   tolerance: 0.5
+  ShowDebug: 1
 --- !u!195 &5358938129495226094
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -128,18 +164,18 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 500
+  m_Speed: 25
   m_Acceleration: 50
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  avoidancePriority: 99
+  m_AngularSpeed: 300
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 3
 --- !u!1001 &7056810659819303387
 PrefabInstance:
   m_ObjectHideFlags: 0

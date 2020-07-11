@@ -6,6 +6,7 @@ public class PickupAble : MonoBehaviour
 {
 
     public Collider col;
+    public Collider trigger;
     public Rigidbody rb;
 
     bool held;
@@ -24,7 +25,7 @@ public class PickupAble : MonoBehaviour
             if (!other.GetComponent<PlayerController>().HandsFull())
             {
                 col.enabled = false;
-                rb.isKinematic = false;
+                //rb.isKinematic = false;
                 rb.constraints = RigidbodyConstraints.FreezeAll;
                 transform.SetParent(other.GetComponent<PlayerController>().holdingPos);
                 held = true;
@@ -40,5 +41,24 @@ public class PickupAble : MonoBehaviour
             //transform.position = new Vector3(0, 0, 0);
             transform.localPosition = new Vector3(0, 0, 0);
         }
+    }
+
+
+
+    public void Use()
+    {
+        Debug.Log("used item");
+        held = false;
+        col.enabled = true;
+        //rb.isKinematic = true;
+        rb.constraints = RigidbodyConstraints.None;
+        transform.SetParent(null);
+        trigger.enabled = false;
+        Invoke("EnableTrigger", 2);
+    }
+
+    public void EnableTrigger()
+    {
+        trigger.enabled = true;
     }
 }
