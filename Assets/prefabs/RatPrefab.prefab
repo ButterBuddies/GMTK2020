@@ -1626,7 +1626,9 @@ MonoBehaviour:
   Health: 100
   MaxHealth: 120
   state: 0
-  Gibs: {fileID: 0}
+  Gibs: {fileID: 1002876163015322034, guid: 1b1dfbd14b803bd4cb7a2f4179bac3b2, type: 3}
+  MaxHitBeforeOblierate: 4
+  TimeToResetMaxhit: 2
 --- !u!136 &6592711614406722573
 CapsuleCollider:
   m_ObjectHideFlags: 0

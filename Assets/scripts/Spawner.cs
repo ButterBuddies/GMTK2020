@@ -24,6 +24,11 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if( SpawnerPoints.Count == 0 || Templates.Count == 0 )
+        {
+            Debug.LogError("Please add least one spawn point or one template!");
+            this.enabled = false;
+        }
         UpdateNextRandomTargetTimeToSpawn();
     }
 
@@ -38,7 +43,6 @@ public class Spawner : MonoBehaviour
         _t += Time.deltaTime;
         if (_t > _nextTarget)
         {
-            Debug.Log("spawned something");
             _t = 0;
             int t = Random.Range(0, Templates.Count);
             int p = Random.Range(0, SpawnerPoints.Count);

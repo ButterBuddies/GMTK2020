@@ -44,6 +44,13 @@ public class Cat : MonoBehaviour
 
     public bool ShowDebug = false;
 
+    public Material[] mats;
+    public Renderer TargetRender;
+
+    public Material[] matsEyes;
+    public Renderer EyeRender;
+
+
     #endregion
 
     #region Implementations
@@ -122,6 +129,17 @@ public class Cat : MonoBehaviour
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+        if(mats.Length > 0 && TargetRender != null )
+        {
+            int i = UnityEngine.Random.Range(0, mats.Length);
+            TargetRender.material = mats[i];
+        }
+
+        if( matsEyes.Length > 0 && EyeRender != null )
+        {
+            int i = UnityEngine.Random.Range(0, matsEyes.Length);
+            EyeRender.material = matsEyes[i];
+        }
     }
 
     private void Start()
