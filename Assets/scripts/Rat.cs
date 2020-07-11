@@ -144,7 +144,7 @@ public class Rat : Attention
         // subtract that by current player position to find the direction, then invert it.
         dir -= transform.position;
         // return the inverse direction of which the rat needs to flee safely.
-        return -dir;
+        return -dir * 20f + transform.position;
     }    
 
     private void PseudoUpdate()

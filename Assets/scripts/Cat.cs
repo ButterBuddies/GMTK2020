@@ -82,7 +82,6 @@ public class Cat : MonoBehaviour
             // assuming we're hitting some kind of object that can be fed... we still need to get the stuff out.
 
         }
-        
     }
 
     /// <summary>
