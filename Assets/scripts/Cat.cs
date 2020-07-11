@@ -215,6 +215,15 @@ public class Cat : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
     }
 
+    public void OnTriggerStay(Collider other)
+    {
+        //May want to only have cats interact with food in certain states, like "Hungry" and not "Scared"
+        if (other.GetComponent<Food>())
+        {
+            Debug.Log("Cat found some food");
+            other.GetComponent<Food>().Eaten(0.1f);
+        }
+    }
 
     #endregion
 }
