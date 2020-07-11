@@ -47,6 +47,7 @@ public class SimpleSmoothMouseLook : MonoBehaviour
         }
         if (looking)
         {
+        
 
             // Allow the script to clamp based on a desired target value.
             var targetOrientation = Quaternion.Euler(targetDirection);
@@ -59,6 +60,10 @@ public class SimpleSmoothMouseLook : MonoBehaviour
             {
                 sensitivity.x = sensitivitySlider.value;
                 sensitivity.y = sensitivitySlider.value;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
             }
 
             // Scale input against the sensitivity setting and multiply that against the smoothing value.

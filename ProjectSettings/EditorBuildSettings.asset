@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7fad3da07df51934eaefa50f58d4ad7a
   - enabled: 1
-    path: Assets/Scenes/SarahsPlayground2.unity
-    guid: fe4d35fa7626d6e49b3aac76026d735d
+    path: Assets/Scenes/SensitivityTest.unity
+    guid: 63ca68efef000f94888e59869f100b48
   m_configObjects: {}

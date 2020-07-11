@@ -14261,11 +14261,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2916642fd5098940886f786d065510d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivitySlider: {fileID: 2100349192}
+  sensitivitySlider: {fileID: 0}
+  looking: 1
   clampInDegrees: {x: 360, y: 135}
   lockCursor: 0
-  sensitivity: {x: 2, y: 2}
-  smoothing: {x: 3, y: 3}
+  sensitivity: {x: 0.1, y: 0.1}
+  smoothing: {x: 1, y: 1}
   targetDirection: {x: 0, y: 0}
   targetCharacterDirection: {x: 0, y: 0}
   characterBody: {fileID: 0}

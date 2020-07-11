@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 641755724716961760}
   - component: {fileID: 641755722783678237}
   - component: {fileID: 2105202369}
+  - component: {fileID: 6610209614926487966}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -342,10 +343,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2916642fd5098940886f786d065510d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensitivitySlider: {fileID: 0}
+  looking: 0
   clampInDegrees: {x: 360, y: 135}
   lockCursor: 1
   sensitivity: {x: 2, y: 2}
   smoothing: {x: 3, y: 3}
+  targetDirection: {x: 0, y: 0}
+  targetCharacterDirection: {x: 0, y: 0}
+  characterBody: {fileID: 0}
+--- !u!114 &6610209614926487966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641755724714571264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2916642fd5098940886f786d065510d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivitySlider: {fileID: 0}
+  looking: 1
+  clampInDegrees: {x: 360, y: 135}
+  lockCursor: 0
+  sensitivity: {x: 0.1, y: 0.1}
+  smoothing: {x: 1, y: 1}
   targetDirection: {x: 0, y: 0}
   targetCharacterDirection: {x: 0, y: 0}
   characterBody: {fileID: 0}
