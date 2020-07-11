@@ -45,7 +45,15 @@ public class HealthBar : MonoBehaviour
         Health = 0;
         state = State.Dead;
         if (Gibs != null)
-            Destroy( Instantiate( Gibs, this.transform ), 30f );
+        {
+            // SPAWN BLOODS
+            GameObject go = Instantiate(Gibs, this.transform.position, Gibs.transform.rotation);
+            // DETATCH FROM PARENT
+            go.transform.parent = this.transform.parent;
+            // DESCEND TO HELL!
+            Destroy(go, 15f);
+            // THIS IS DOOM!
+        }
         this.gameObject.SetActive(false);
     }
 
