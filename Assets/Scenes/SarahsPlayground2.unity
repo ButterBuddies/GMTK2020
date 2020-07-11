@@ -6798,6 +6798,11 @@ PrefabInstance:
       propertyPath: m_RunSpeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 641755724720047072, guid: a80247af680171940acf2c29a474e33b,
+        type: 3}
+      propertyPath: m_UseFovKick
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a80247af680171940acf2c29a474e33b, type: 3}
 --- !u!1001 &1082495087
@@ -13598,6 +13603,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d3f14a530c0e064286d121ce451fbfa, type: 3}
+--- !u!1 &2105202362 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 641755724714571264, guid: a80247af680171940acf2c29a474e33b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1077947132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2105202369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105202362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2916642fd5098940886f786d065510d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clampInDegrees: {x: 360, y: 135}
+  lockCursor: 1
+  sensitivity: {x: 2, y: 2}
+  smoothing: {x: 3, y: 3}
+  targetDirection: {x: 0, y: 0}
+  targetCharacterDirection: {x: 0, y: 0}
+  characterBody: {fileID: 0}
 --- !u!1001 &2120343742
 PrefabInstance:
   m_ObjectHideFlags: 0
