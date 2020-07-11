@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SarahsPlayground2.unity
     guid: fe4d35fa7626d6e49b3aac76026d735d
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 94a3744946683174d872d9d62c5de31d
   m_configObjects: {}
