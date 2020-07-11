@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3589907314224091888}
+  - component: {fileID: 6698548594213858250}
+  - component: {fileID: 5414654575680834102}
   m_Layer: 0
   m_Name: hill
   m_TagString: Untagged
@@ -41,6 +43,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6698548594213858250
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3589907314224091891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19, y: 5, z: 19}
+  m_Center: {x: 0, y: 2.5, z: 0}
+--- !u!65 &5414654575680834102
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3589907314224091891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9, y: 5, z: 9.25}
+  m_Center: {x: -5, y: 2.5, z: 14.1}
 --- !u!1001 &3589907313974680905
 PrefabInstance:
   m_ObjectHideFlags: 0
