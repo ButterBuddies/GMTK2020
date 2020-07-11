@@ -2,6 +2,10 @@
 
 public class Item : MonoBehaviour
 {
-    public string Name;
-    public string Descript;
+    [SerializeField]
+    public string Name = string.Empty;
+    [SerializeField]
+    public string Descript = string.Empty;
+    [SerializeField]
+    public bool ShowDebug = false;
 }

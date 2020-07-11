@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -9,9 +10,14 @@ public class Cat : MonoBehaviour
     //public enum Emotion { Lonely, Scared, Happy, Clean, Scout, Sleep, Eating}
 
     // in this case we can determine the shape and size of a cat object.
-    public float speed = 5f;
+    public float NormalSpeed = 15f;
+    public float FleeSpeed = 50f;
+    public float ChaseSpeed = 35f;
+
     // if the cat weights gets too much, then thespeed of the cat and the emotion of the cat gets inflicted. 
     public float weight = 1f;
+    public AnimationCurve weightScale = new AnimationCurve();
+
     // Time it takes for cat to change it's behavior decisions beacse you know.. cats get weird and strange to predict?
     public float MaxTimeToChangeDecision = 20.0f;
     public float MinTimeToChangeDecision = 5f;
@@ -35,7 +41,9 @@ public class Cat : MonoBehaviour
     private NavMeshAgent _agent;
     private float _t = 0;
 
-#endregion
+    public bool ShowDebug = false;
+
+    #endregion
 
     #region Implementations
     public void MoveTowards( GameObject obj )
@@ -43,12 +51,19 @@ public class Cat : MonoBehaviour
         // in case of a laser pointer or some kind of target to
         CurrentBehavior = Behavior.Chase;
         _suspectedTarget = obj;
+        _agent.SetDestination(obj.transform.position);
+        _agent.speed = weightScale.Evaluate(weight) * ChaseSpeed;
     }
 
     public void FleeFrom( GameObject obj )
     {
         CurrentBehavior = Behavior.Flee;
         _suspectedTarget = obj;
+        Vector3 newDir = ( this.transform.position - obj.transform.position) * MaxRadius + this.transform.position;
+        _agent.speed = weightScale.Evaluate(weight) * FleeSpeed;
+        _agent.SetDestination(newDir);
+        StopCoroutine(PseudoUpdate());
+        StartCoroutine(PseudoUpdate());
     }
 
     public void Feed(Food food)
@@ -97,6 +112,7 @@ public class Cat : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        if (!ShowDebug) return;
         // Show the max area of which the range is given to the cat.
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, MaxRadius);
@@ -121,18 +137,22 @@ public class Cat : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        switch(CurrentBehavior)
+        switch (CurrentBehavior)
         {
             case Behavior.Chase: break;
             case Behavior.Flee: break;
             case Behavior.Freeze: break;
-            case Behavior.Idle: break;
+            case Behavior.Idle: IdleRandomBehavior(); break;
             default: // hmm you did something wrong to make this happen shame on you and yoru code design... 
                 break;
-        }
+        }  
+    }
+
+    private void IdleRandomBehavior()
+    {
         _t += Time.deltaTime;
 
-        if(_timeToChangeDirection < _t )
+        if (_timeToChangeDirection < _t)
         {
             _timeToChangeDirection = Random.Range(MinTimeToChangeDecision, MaxTimeToChangeDecision);
             _t = 0;
@@ -148,12 +168,33 @@ public class Cat : MonoBehaviour
             float x = Mathf.Sin(Random.Range(-360.0f, 360.0f)) * Random.Range(MinRadius, MaxRadius) + transform.position.x;
             float z = Mathf.Cos(Random.Range(-360.0f, 360.0f)) * Random.Range(MinRadius, MaxRadius) + transform.position.z;
             Vector3 dir = new Vector3(x, this.transform.position.y, z);
-            CurrentBehavior = Behavior.Chase;
-                // in this case we want the cat to be just walking.... instead of chasing?
+            //CurrentBehavior = Behavior.Chase;
+            // in this case we want the cat to be just walking.... instead of chasing?
             _agent.SetDestination(dir);
             //}
         }
     }
-   
+
+    private void OnDisable()
+    {
+        StopCoroutine(PseudoUpdate());
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(PseudoUpdate());
+    }
+
+    IEnumerator PseudoUpdate()
+    {
+        yield return new WaitForSeconds(0);
+        
+        if (CurrentBehavior == Behavior.Flee && _agent.isActiveAndEnabled && _agent.isStopped )
+            CurrentBehavior = Behavior.Idle;
+
+        yield return new WaitForSeconds(0.5f);
+    }
+
+
     #endregion
 }

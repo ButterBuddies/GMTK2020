@@ -228,7 +228,4 @@ public class SteeringBehavior : MonoBehaviour
         steering = Vector2.zero;
         rigidbody.velocity = Vector3.zero;
     }
-
-
-
 }
