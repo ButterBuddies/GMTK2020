@@ -13,6 +13,7 @@ public class LoseGotoKeys : MonoBehaviour
             SceneManager.LoadScene("The Main scene");
         else if (Input.GetKeyDown(KeyCode.M))
             SceneManager.LoadScene("MainMenu");
-
+        else if (Input.GetKeyDown(KeyCode.P))
+            SceneManager.LoadScene("Tutorial");
     }
 }
