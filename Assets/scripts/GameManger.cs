@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManger : MonoBehaviour
 {
@@ -11,6 +12,15 @@ public class GameManger : MonoBehaviour
     //public GameObject ratSpawner;
     //public GameObject spawnerManager;
 
+    //Use a slider to indicate the rat infestation and determine if we win or lost the game.
+    // 0 means no rat infestaton
+    // 100 or 1 means 100% rat infestation and you lose the game.
+    // what about rat king? Hmm good fucking question!
+    // Let's add a slider for his abominable health!
+    public Slider RatInfestationStatus;
+    public Slider RatKingHealth;
+    public Image RatInfestationBackground;
+    public Gradient colorRamp = new Gradient();
 
     public void Start()
     {
@@ -19,7 +29,6 @@ public class GameManger : MonoBehaviour
 
     public void CountRats()
     {
-
         int ratCount = FindObjectsOfType<Rat>().Length;
         Debug.Log("Rat count: " + ratCount);
 
@@ -34,6 +43,17 @@ public class GameManger : MonoBehaviour
         //    StartBossFight();
         //    //SceneManager.LoadScene("Win");
         //}
+        if(RatInfestationStatus != null )
+        {
+            // rip 24 bit of memory allocation for this... but aat least it's easy to read..
+            float percentage = (ratCount / loseRatCount);
+            float minVal = RatInfestationStatus.minValue;
+            float maxVal = RatInfestationStatus.maxValue;
+            RatInfestationStatus.value = (minVal - maxVal) * percentage + (minVal);
+            if( RatInfestationBackground != null )
+                RatInfestationBackground.color = colorRamp.Evaluate(percentage);
+        }
+
         if (ratCount >= loseRatCount)
         {
             Debug.Log("You lose, rate infestation out of control!");
