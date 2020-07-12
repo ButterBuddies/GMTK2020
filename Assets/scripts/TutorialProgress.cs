@@ -1,11 +1,14 @@
 ﻿using UnityEngine.Playables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor.Experimental.RestService;
 
 public class TutorialProgress : MonoBehaviour
 {
     PlayerController controller;
+    [SerializeField] PlayableAsset cutscene;
    [SerializeField] PlayableDirector director;
+    bool playing =false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +26,12 @@ public class TutorialProgress : MonoBehaviour
         }
         if (controller.progress > 2)
         {
-            if (director.state != PlayState.Playing)
-                director.Play();
+            if (!playing)
+            {
+                Debug.Log("playing");
+                director.Play(cutscene);
+                playing = true;
+            }
         }
     }
 
