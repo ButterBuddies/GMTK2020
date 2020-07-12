@@ -21,6 +21,7 @@ public class GameManger : MonoBehaviour
     public Slider RatKingHealth;
     public Image RatInfestationBackground;
     public Gradient colorRamp = new Gradient();
+    //public PlayerController player;
 
     public void Start()
     {
@@ -57,8 +58,10 @@ public class GameManger : MonoBehaviour
         if (ratCount >= loseRatCount)
         {
             Debug.Log("You lose, rate infestation out of control!");
-            Cursor.visible = true;
-            losePanel.SetActive(true);
+            SceneManager.LoadScene("Lose");
+            //Cursor.visible = true;
+            //losePanel.SetActive(true);
+            //player.enabled = false;
             //ratSpawner.SetActive(true);
         }
         //else if (ratKing.activeInHierarchy) 
@@ -70,7 +73,7 @@ public class GameManger : MonoBehaviour
 
     public void RestartCurrentScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("The Main scene");
     }
 
     public void LoadMainMenu()
