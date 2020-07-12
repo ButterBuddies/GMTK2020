@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManger : MonoBehaviour
 {
-    public int maxRatCount;
-    public int minRatCount;
+    public int loseRatCount;
+    //public int winRatCount;
     public GameObject losePanel;
-    public GameObject ratSpawner;
-    public GameObject ratKing;
+    //public GameObject ratSpawner;
+    //public GameObject spawnerManager;
 
 
     public void Start()
@@ -23,23 +23,23 @@ public class GameManger : MonoBehaviour
         int ratCount = FindObjectsOfType<Rat>().Length;
         Debug.Log("Rat count: " + ratCount);
 
-        if (ratKing == null) //assuming the rat king has been defeated, the player won the game
+        //if (spawnerManager == null) //assuming the rat king has been defeated, the player won the game
+        //{
+        //    Debug.Log("rat king defeated");
+        //    //SceneManager.LoadScene("Win");
+        //}
+        //else if (ratCount <= minRatCount && !ratKing.activeInHierarchy)
+        //{
+        //    Debug.Log("You won, rat infestation under control");
+        //    StartBossFight();
+        //    //SceneManager.LoadScene("Win");
+        //}
+        if (ratCount >= loseRatCount)
         {
-            Debug.Log("rat king defeated");
-            //SceneManager.LoadScene("Win");
-        }
-        else if (ratCount <= minRatCount && !ratKing.activeInHierarchy)
-        {
-            Debug.Log("You won, rat infestation under control");
-            StartBossFight();
-            //SceneManager.LoadScene("Win");
-        }
-        else if (ratCount >= maxRatCount && !ratKing.activeInHierarchy)
-        {
-            Debug.Log("You lose, rate infestation out of control");
+            Debug.Log("You lose, rate infestation out of control!");
             Cursor.visible = true;
             losePanel.SetActive(true);
-            ratSpawner.SetActive(true);
+            //ratSpawner.SetActive(true);
         }
         //else if (ratKing.activeInHierarchy) 
         //{
@@ -58,9 +58,9 @@ public class GameManger : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void StartBossFight()
-    {
-        ratKing.SetActive(true);
+    //public void StartBossFight()
+    //{
+    //    ratKing.SetActive(true);
 
-    }
+    //}
 }

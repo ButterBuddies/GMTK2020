@@ -40,6 +40,12 @@ public class RatKing : Attention
         }
     }
 
+    public void OnDestroy()
+    {
+        Debug.Log("rat king defeated");
+        //SceneManager.LoadScene("Win");
+    }
+
     private void Start()
     {
         // for some reason this guy isn't getting called... hmm 
