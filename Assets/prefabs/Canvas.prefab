@@ -604,7 +604,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27acda4ff026bd439d8bfa6124e7cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRatCount: 5
-  minRatCount: 3
+  loseRatCount: 10
   losePanel: {fileID: 2154954384014962481}
-  ratSpawner: {fileID: 0}
