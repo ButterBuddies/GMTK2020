@@ -1433,9 +1433,9 @@ MonoBehaviour:
   ShowDebug: 0
   AttentionRadius: 10
   BatteryLife: 100
-  usageDrain: 33
+  usageDrain: 25
   rechargeRate: 20
-  delayToRecharge: 1.5
+  delayToRecharge: 1
   Pointers: {fileID: 7380708168087177107}
   LaserIndicator: {fileID: 3274666378997583736}
   LaserBar: {fileID: 3739971325136315812}
