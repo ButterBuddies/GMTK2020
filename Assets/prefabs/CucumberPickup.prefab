@@ -99,7 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Cucumber
-  Descript: Because shit this vegetable is scary yall
+  Descript: I mean look at this thing!! Is it a pickle?! Is it a vegetable?! What
+    in tarnation is this!!
   ShowDebug: 0
   Radius: 10
   IntervalRefire: 0.5

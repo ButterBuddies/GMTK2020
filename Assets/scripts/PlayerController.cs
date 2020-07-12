@@ -1,39 +1,63 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public Transform holdingPos;
-    public GameObject heldItem;
     public Transform lassoStartPoint;
     public LineRenderer lassoLine;
     public Transform lassoEndPoint;
 
-    public bool HandsFull()
+    public Text Header;
+    public Text Descript;
+    public PickupAble heldItem;
+
+
+    private void UpdateUI()
     {
-        if (!heldItem)
-            return false;
+        // don't draw the text if I can't get the game object
+        if (Header == null || Descript == null) return;
+        // make sure we can pull the item off from teh gameobject.
+        // if it's not null display text.
+        Item item = heldItem?.item;
+        if (item != null)
+        {
+            Header.text = item.Name;
+            Descript.text = item.Descript;
+        }
+        // else set it empty.
         else
-            return true;
+        {
+            Header.text = string.Empty;
+            Descript.text = string.Empty;
+        }
     }
 
-    public void HoldItem(GameObject item)
+    public bool HandsFull()
+    {
+        return heldItem != null;
+    }
+
+    public void HoldItem(PickupAble item)
     {
         if (heldItem == null)
         {
             heldItem = item;
+            UpdateUI();
         }
     }
 
     public void UseItem()
     {
-        Debug.Log("got in use item");
         if (heldItem != null)
         {
             heldItem.GetComponent<PickupAble>().Use();
             //use the item if holding one
             heldItem = null;
+            UpdateUI();
         }
     }
 
