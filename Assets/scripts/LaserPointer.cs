@@ -74,7 +74,7 @@ public class LaserPointer : Item
         else
         {
             // turn off laser if they're still on?
-            if ( Pointers != null && Pointers.activeSelf )
+            if ( Pointers != null && Pointers.activeSelf == true )
             {
                 Pointers.SetActive(false);
                 _laserBeam.enabled = false;
