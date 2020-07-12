@@ -46,7 +46,7 @@ public class Spawner : MonoBehaviour
             // spawn Rat King
             Debug.Log("LONG LIVE THE KING!");
             Instantiate(RatKing, this.transform.position, Quaternion.identity);
-
+            this.enabled = false;
         }
     }
 
