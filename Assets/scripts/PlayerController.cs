@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public bool tutorial = false;
     public int progress = 0;
 
-    public bool UpdateUI()
+    public void UpdateUI()
     {
         // don't draw the text if I can't get the game object
         if (Header == null || Descript == null) return;
