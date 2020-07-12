@@ -59,6 +59,7 @@ public class Cat : MonoBehaviour
     private GameObject _suspectedTarget;
     private NavMeshAgent _agent;
     private float _t = 0;
+    private float _scaredTimer = 0;
     private float _currentWeightDeduction = 0;
     private float _speedMagnitude = 0;
 
@@ -202,6 +203,7 @@ public class Cat : MonoBehaviour
         _agent.destination = newDir;
         StopCoroutine(PseudoUpdate());
         StartCoroutine(PseudoUpdate());
+        _scaredTimer = 5f;
     }
 
     private void Awake()
@@ -256,7 +258,18 @@ public class Cat : MonoBehaviour
         switch (CurrentBehavior)
         {
             case Behavior.Chase: ChaseObject();  break;
-            case Behavior.Flee: break;
+            case Behavior.Flee:
+                {
+                    if (_scaredTimer > 0)
+                    {
+                        _scaredTimer -= Time.fixedDeltaTime;
+                        if ( _scaredTimer == 0 )
+                        {
+                            SetNormalMode();
+                        }
+                    }
+                    break;
+                }
             case Behavior.Freeze: break;    //no code implemented yet.
             case Behavior.Idle: IdleRandomBehavior(); break;
             default: // hmm you did something wrong to make this happen shame on you and yoru code design... 
