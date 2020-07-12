@@ -26517,6 +26517,36 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2154954384014962482, guid: 835dfe5527100a84bad61f4dd0abe8a8,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154954384014962482, guid: 835dfe5527100a84bad61f4dd0abe8a8,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154954384014962482, guid: 835dfe5527100a84bad61f4dd0abe8a8,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154954384014962482, guid: 835dfe5527100a84bad61f4dd0abe8a8,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154954384014962482, guid: 835dfe5527100a84bad61f4dd0abe8a8,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154954384014962482, guid: 835dfe5527100a84bad61f4dd0abe8a8,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2154954384253349698, guid: 835dfe5527100a84bad61f4dd0abe8a8,
         type: 3}
       propertyPath: m_Name
@@ -26636,6 +26666,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154954384253349710, guid: 835dfe5527100a84bad61f4dd0abe8a8,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 157862315}
+    - target: {fileID: 2154954384253349710, guid: 835dfe5527100a84bad61f4dd0abe8a8,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154954384253349711, guid: 835dfe5527100a84bad61f4dd0abe8a8,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154954384253349711, guid: 835dfe5527100a84bad61f4dd0abe8a8,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154954384253349711, guid: 835dfe5527100a84bad61f4dd0abe8a8,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 720
       objectReference: {fileID: 0}
     - target: {fileID: 4948839328323154873, guid: 835dfe5527100a84bad61f4dd0abe8a8,
         type: 3}

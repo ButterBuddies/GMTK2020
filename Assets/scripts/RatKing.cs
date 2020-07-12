@@ -24,7 +24,7 @@ public class RatKing : Attention
     private float _wanderTarget;
     private Vector3 _wanderDir = Vector3.zero;
     private HealthBar _healthBar;
-    private bool _canSpawnAgain = false;
+    private bool _canSpawnAgain = true;
 
     private void OnDrawGizmosSelected()
     {
@@ -117,6 +117,7 @@ public class RatKing : Attention
             // in this case here, sarah wants to see what happen if the rat king spawns wave of rats?
             if (_canSpawnAgain)
             {
+                Debug.Log("Spawning rats");
                 _canSpawnAgain = false;
                 _spawnTimer = TimerDelayForRespawn;
                 for (int i = 0; i < NumberOfRatSpawnPerRound; i++)
