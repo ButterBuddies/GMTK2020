@@ -119,6 +119,7 @@ MonoBehaviour:
   FleeWeightDeduction: 0.02
   ChaseSpeed: 40
   ChaseWeightDeduction: 0.04
+  FleeDistance: 15
   weight: 0.5
   weightScale:
     serializedVersion: 2

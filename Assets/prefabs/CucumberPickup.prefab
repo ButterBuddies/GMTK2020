@@ -101,8 +101,8 @@ MonoBehaviour:
   Name: Cucumber
   Descript: Terrifying, might be a snake?
   ShowDebug: 0
-  Radius: 10
-  IntervalRefire: 0.5
+  Radius: 15
+  IntervalRefire: 0.1
 --- !u!1 &8930916215985542342
 GameObject:
   m_ObjectHideFlags: 0

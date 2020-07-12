@@ -30,6 +30,8 @@ public class Cat : MonoBehaviour
     public float ChaseSpeed = 35f;
     public float ChaseWeightDeduction = 0.04f;
 
+    public float FleeDistance = 5f;
+
     // if the cat weights gets too much, then thespeed of the cat and the emotion of the cat gets inflicted.
     [Range(0,1)]
     public float weight = 0.5f;
@@ -192,11 +194,12 @@ public class Cat : MonoBehaviour
     private void SetFleeMode(GameObject source)
     {
         CurrentBehavior = Behavior.Flee;
-        _suspectedTarget = source;
+        _suspectedTarget = null;
         _currentWeightDeduction = FleeWeightDeduction;
         _speedMagnitude = FleeSpeed;
-        Vector3 newDir = (this.transform.position - source.transform.position) * MaxRadius + this.transform.position;
+        Vector3 newDir = (this.transform.position - source.transform.position).normalized * FleeDistance + this.transform.position;
         _agent.SetDestination(newDir);
+        _agent.destination = newDir;
         StopCoroutine(PseudoUpdate());
         StartCoroutine(PseudoUpdate());
     }
@@ -228,18 +231,22 @@ public class Cat : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         if (!ShowDebug) return;
-        if ( _agent == null ) return;
 
         Gizmos.DrawWireCube(_agent.destination, Vector3.one * 1f);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, FleeDistance);
 
-        Vector3[] v = _agent.path.corners;
-        Gizmos.color = Color.yellow;
-        if (v.Length == 1)
-            Gizmos.DrawLine(this.transform.position, _agent.destination);
-        else
+        if (_agent != null)
         {
-            for (int i = 1, n = v.Length - 1; i < n - 1; i++)
-                Gizmos.DrawLine(v[i - 1], v[i]);
+            Vector3[] v = _agent.path.corners;
+            Gizmos.color = Color.yellow;
+            if (v.Length == 1)
+                Gizmos.DrawLine(this.transform.position, _agent.destination);
+            else
+            {
+                for (int i = 1, n = v.Length - 1; i < n - 1; i++)
+                    Gizmos.DrawLine(v[i - 1], v[i]);
+            }
         }
     }
 
@@ -330,8 +337,9 @@ public class Cat : MonoBehaviour
         if (CurrentBehavior == Behavior.Flee && _agent.isActiveAndEnabled && _agent.isStopped)
         {
             SetNormalMode();
+            yield return null;
         }
-
+        
         yield return new WaitForSeconds(0.5f);
     }
 
