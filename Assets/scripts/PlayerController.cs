@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     public LineRenderer lassoLine;
     public Transform lassoEndPoint;
 
+    public bool tutorial = false;
+    public int progress = 0;
+
     public bool HandsFull()
     {
         if (!heldItem)
@@ -34,6 +37,13 @@ public class PlayerController : MonoBehaviour
             heldItem.GetComponent<PickupAble>().Use();
             //use the item if holding one
             heldItem = null;
+        }
+        if (tutorial)
+        {
+            if (progress < 2)
+            {
+                progress++;
+            }
         }
     }
 
