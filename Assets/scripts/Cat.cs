@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class Cat : MonoBehaviour
@@ -71,28 +72,53 @@ public class Cat : MonoBehaviour
     #endregion
 
     #region Implementations
-    public void MoveTowards( GameObject obj )
+    public void ChaseTowards( GameObject obj )
     {
         // I'm already chasing!! Go away!
         if (CurrentBehavior == ( Behavior.Chase | Behavior.Flee ) ) return;
-        // in case of a laser pointer or some kind of target to
-        CurrentBehavior = Behavior.Chase;
-        _currentWeightDeduction = ChaseWeightDeduction;
+
+        // So here's where the weight system comes to play.
+        Item i = GetComponent<Item>();
+        switch( i )
+        {
+            case Food food:
+                {
+                    if( weight < 0.5 || Random.Range(0.5f, 1.0f) > weight )
+                    {
+                        SetChaseMode(obj);
+                    }
+                    break;
+                }
+            case Attention attention:
+                {
+                    if( weight >= 0.5 || Random.Range(0.0f, 0.51f) < weight )
+                    {
+                        SetChaseMode(obj);
+                    }
+                    break;
+                }
+            default:
+                {
+                    // in case of a laser pointer or some kind of target to then we'll just force it?
+                    SetChaseMode(obj);
+                    break;
+                }
+        }
+    }
+
+    public void WalkTowards( GameObject obj)
+    {
         _suspectedTarget = obj;
-        _speedMagnitude = ChaseSpeed;  
         _agent.SetDestination(obj.transform.position);
+        if ( CurrentBehavior == ( Behavior.Idle ) ) return;
+        CurrentBehavior = Behavior.Idle;
+        _currentWeightDeduction = NormalWeightDeduction;
+        _speedMagnitude = NormalSpeed;
     }
 
     public void FleeFrom( GameObject obj )
     {
-        CurrentBehavior = Behavior.Flee;
-        _suspectedTarget = obj;
-        _currentWeightDeduction = FleeWeightDeduction;
-        Vector3 newDir = ( this.transform.position - obj.transform.position) * MaxRadius + this.transform.position;
-        _speedMagnitude = FleeSpeed;
-        _agent.SetDestination(newDir);
-        StopCoroutine(PseudoUpdate());
-        StartCoroutine(PseudoUpdate());
+        SetFleeMode(obj);
     }
 
     public void Feed(Item item)
@@ -128,7 +154,7 @@ public class Cat : MonoBehaviour
         // could be Chase, Flee, or Idle (Frozen)...
         switch( Mathf.Round(t))
         {
-            case 0: MoveTowards(obj); break;                    // we can chase the object? Why not!
+            case 0: ChaseTowards(obj); break;                    // we can chase the object? Why not!
             case 1: CurrentBehavior = Behavior.Freeze; break;   // cat scared, can't move?
             case 2: FleeFrom(obj); break;                       // Cat afraid, flee from object.
             default:
@@ -144,6 +170,37 @@ public class Cat : MonoBehaviour
     #endregion
 
     #region Behavior engine
+
+    private void SetChaseMode(GameObject obj)
+    {
+        CurrentBehavior = Behavior.Chase;
+        _suspectedTarget = obj;
+        _currentWeightDeduction = ChaseWeightDeduction;
+        _speedMagnitude = ChaseSpeed;
+        _agent.SetDestination(obj.transform.position);
+        StopCoroutine(PseudoUpdate());
+    }
+
+    private void SetNormalMode()
+    {
+        CurrentBehavior = Behavior.Idle;
+        _suspectedTarget = null;
+        _speedMagnitude = NormalSpeed;
+        _currentWeightDeduction = NormalWeightDeduction;
+        StopCoroutine(PseudoUpdate());
+    }
+
+    private void SetFleeMode(GameObject source)
+    {
+        CurrentBehavior = Behavior.Flee;
+        _suspectedTarget = source;
+        _currentWeightDeduction = FleeWeightDeduction;
+        _speedMagnitude = FleeSpeed;
+        Vector3 newDir = (this.transform.position - source.transform.position) * MaxRadius + this.transform.position;
+        _agent.SetDestination(newDir);
+        StopCoroutine(PseudoUpdate());
+        StartCoroutine(PseudoUpdate());
+    }
 
     private void Awake()
     {
@@ -194,7 +251,7 @@ public class Cat : MonoBehaviour
         {
             case Behavior.Chase: ChaseObject();  break;
             case Behavior.Flee: break;
-            case Behavior.Freeze: break;
+            case Behavior.Freeze: break;    //no code implemented yet.
             case Behavior.Idle: IdleRandomBehavior(); break;
             default: // hmm you did something wrong to make this happen shame on you and yoru code design... 
                 break;
@@ -267,9 +324,7 @@ public class Cat : MonoBehaviour
 
         if (CurrentBehavior == Behavior.Flee && _agent.isActiveAndEnabled && _agent.isStopped)
         {
-            CurrentBehavior = Behavior.Idle;
-            _speedMagnitude = NormalSpeed;
-            _currentWeightDeduction = NormalWeightDeduction;
+            SetNormalMode();
         }
 
         yield return new WaitForSeconds(0.5f);
@@ -277,13 +332,31 @@ public class Cat : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
+        Food food = other.GetComponent<Food>();
         //May want to only have cats interact with food in certain states, like "Hungry" and not "Scared"
-        if (other.GetComponent<Food>())
+        if (food != null)
         {
-            //Debug.Log("Cat found some food");
-            other.GetComponent<Food>().Eaten(0.1f);
+            food.Eaten();
         }
     }
+
+    //public void OnCollisionStay(Collision collision)
+    //{
+    //    Rat rat = collision.transform.GetComponent<Rat>();
+    //    if( rat != null )
+    //    {
+    //        rat.Feed
+    //    }
+    //}
+
+    // Wander wants to see if we can try implemented "Leader packs" in this game where we have a pack of cats gather together only and if only if they're hungry asf...
+    #region Leader Follows
+
+    // in this behavior example, we need to determine if one qualify as a leader.... 
+    // 
+
+    #endregion
+
 
     #endregion
 }

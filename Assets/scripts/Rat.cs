@@ -50,6 +50,7 @@ public class Rat : Attention
 
     private void Start()
     {
+        // for some reason this guy isn't getting called... hmm 
         RaycastHit[] hits = Physics.SphereCastAll(this.transform.position, Radius, Vector3.down);
         foreach( var h in hits )
         {
@@ -57,7 +58,7 @@ public class Rat : Attention
             if( c != null )
             {
                 _nearbyCats.Add(c);
-                c.MoveTowards(this.gameObject);
+                c.ChaseTowards(this.gameObject);
             }
         }
         _healthBar = GetComponent<HealthBar>();
@@ -207,7 +208,7 @@ public class Rat : Attention
         if( c != null )
         {
             _nearbyCats.Add(c);
-            c.MoveTowards(this.gameObject);
+            c.ChaseTowards(this.gameObject);
         }
     }
 
@@ -238,4 +239,21 @@ public class Rat : Attention
             _healthBar.Oblierated();
         }
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        // needs a timer hmm..
+        Cat cat = collision.gameObject.GetComponent<Cat>();
+        if( cat != null )
+        {
+            cat.Feed(this);
+            _healthBar.InflictDamage(15);
+            return;
+        }
+    }
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+        
+    //}
 }

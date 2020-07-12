@@ -30,7 +30,7 @@ public class Attention : Item
         if( c != null )
         {
             //Debug.Log($"{other.gameObject.name} has enter this {this.gameObject.name} trigger.");
-            c.MoveTowards(this.gameObject);
+            c.ChaseTowards(this.gameObject);
         }
     }
 }
