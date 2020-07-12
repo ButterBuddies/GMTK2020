@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(LineRenderer))]
 public class LaserPointer : Item
@@ -11,6 +11,9 @@ public class LaserPointer : Item
     public float delayToRecharge = 1f;
     private float _t;
     public GameObject Pointers;
+
+    public Text LaserIndicator;
+    public Slider LaserBar;
 
     // Hmmm..... interesting?
     private bool _isOn = false;
@@ -25,21 +28,25 @@ public class LaserPointer : Item
     public void Update()
     {
         _isOn = Input.GetButton("Fire1");
+
+        LaserUpdate();
+
+        UpdateUI();
     }
 
-    public void FixedUpdate()
+    private void LaserUpdate()
     {
-        if ( BatteryLife <= 0 )
+        if (BatteryLife <= 0)
         {
             _isOn = false;
         }
 
-        if ( _isOn )
+        if (_isOn)
         {
             _t = 0;
             // drain battery life for usage
             BatteryLife -= usageDrain * Time.fixedDeltaTime;
-            if ( Pointers?.activeSelf == false )
+            if (Pointers?.activeSelf == false)
             {
                 Pointers?.SetActive(true);
                 _laserBeam.enabled = true;
@@ -49,7 +56,7 @@ public class LaserPointer : Item
             // set end point of the laser
             Vector3 endPoint = transform.position;
             RaycastHit hit;
-            if (Physics.Raycast(this.transform.position, this.transform.forward * 1000.0f, out hit ) )
+            if (Physics.Raycast(this.transform.position, this.transform.forward * 1000.0f, out hit))
             {
                 endPoint = hit.point;
                 if (Pointers != null)
@@ -61,20 +68,20 @@ public class LaserPointer : Item
             else
             {
                 endPoint = transform.forward * 1000f;
-                if (Pointers?.activeSelf == true )
+                if (Pointers?.activeSelf == true)
                 {
                     Pointers?.SetActive(false);
                 }
                 // just draw the trail render instead to a straight vertical line...
             }
             // update the trail regardless of the condition above...
-            _laserBeam.SetPosition( 0, transform.position );
-            _laserBeam.SetPosition( _laserBeam.positionCount - 1, endPoint );
+            _laserBeam.SetPosition(0, transform.position);
+            _laserBeam.SetPosition(_laserBeam.positionCount - 1, endPoint);
         }
         else
         {
             // turn off laser if they're still on?
-            if ( Pointers != null && Pointers.activeSelf )
+            if (Pointers != null && Pointers.activeSelf == true)
             {
                 Pointers.SetActive(false);
                 _laserBeam.enabled = false;
@@ -84,11 +91,24 @@ public class LaserPointer : Item
             if (BatteryLife < 100f)
             {
                 _t += Time.fixedDeltaTime;
-                if ( _t > delayToRecharge)
+                if (_t > delayToRecharge)
                 {
                     BatteryLife += Time.fixedDeltaTime * rechargeRate;
                 }
             }
+        }
+    }
+
+    private void UpdateUI()
+    {
+        if( LaserBar != null)
+        {
+            LaserBar.value = Mathf.Lerp(1, 0, BatteryLife / 100);
+        }
+
+        if( LaserIndicator != null )
+        {
+            LaserIndicator.text = $"{Mathf.Clamp(Mathf.Floor(BatteryLife), 0, 100)}%";
         }
     }
 

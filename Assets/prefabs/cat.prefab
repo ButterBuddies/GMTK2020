@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 536aa96b18ec1084fbeb9eab69324d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 5555271316840418986}
   NormalSpeed: 10
   NormalWeightDeduction: 0.01
   FleeSpeed: 60
@@ -227,6 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34024cd2ee61978429f8c20af24d3691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minTime: 10
+  maxTime: 120
   hungrySounds:
   - {fileID: 8300000, guid: a7902514256cfd749b199f91c0e4d648, type: 3}
   - {fileID: 8300000, guid: 46348841f1b0be247ac0883a582a789c, type: 3}
@@ -405,11 +408,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cat_Rigged_Model
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 1339809d5203e1e4281be0f1745d0b2a,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5e27c58e236593d439258b9ad3976acc, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 1339809d5203e1e4281be0f1745d0b2a,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1339809d5203e1e4281be0f1745d0b2a, type: 3}
 --- !u!4 &2015471887585203408 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1339809d5203e1e4281be0f1745d0b2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2049943212603224891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5555271316840418986 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 1339809d5203e1e4281be0f1745d0b2a,
     type: 3}
   m_PrefabInstance: {fileID: 2049943212603224891}
   m_PrefabAsset: {fileID: 0}
