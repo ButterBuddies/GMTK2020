@@ -822,6 +822,8 @@ MonoBehaviour:
   Header: {fileID: 4316227040487161195}
   Descript: {fileID: 4270530749498828794}
   heldItem: {fileID: 0}
+  tutorial: 0
+  progress: 0
 --- !u!114 &5531733919515785317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,6 +857,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70694966356253428e913a079aa542a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wingflap: {fileID: 8300000, guid: 48dd1c4484f3ad249abcbf617ebb71d5, type: 3}
+  clipclop: {fileID: 8300000, guid: c31727efe500863458a933cbf4a6d6a6, type: 3}
+  flying: 1
 --- !u!1 &2278677652367312224
 GameObject:
   m_ObjectHideFlags: 0

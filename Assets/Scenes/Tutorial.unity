@@ -16117,6 +16117,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5e0e3e5328bccf8438b910cc30934bfb, type: 2}
+    - target: {fileID: 3832741960532782517, guid: a80247af680171940acf2c29a474e33b,
+        type: 3}
+      propertyPath: flying
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3832741960532782517, guid: a80247af680171940acf2c29a474e33b,
+        type: 3}
+      propertyPath: clipclop
+      value: 
+      objectReference: {fileID: 8300000, guid: c31727efe500863458a933cbf4a6d6a6, type: 3}
+    - target: {fileID: 3832741960532782517, guid: a80247af680171940acf2c29a474e33b,
+        type: 3}
+      propertyPath: wingflap
+      value: 
+      objectReference: {fileID: 8300000, guid: 48dd1c4484f3ad249abcbf617ebb71d5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a80247af680171940acf2c29a474e33b, type: 3}
 --- !u!4 &1534450397 stripped

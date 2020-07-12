@@ -42,7 +42,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_StepCycle;
         private float m_NextStep;
         private bool m_Jumping;
-        private AudioSource m_AudioSource;
+       // private AudioSource m_AudioSource;
 
         public bool AllowFlying = true;
 
@@ -57,7 +57,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_StepCycle = 0f;
             m_NextStep = m_StepCycle/2f;
             m_Jumping = false;
-            m_AudioSource = GetComponent<AudioSource>();
+            //m_AudioSource = GetComponent<AudioSource>();
 			//m_MouseLook.Init(transform , m_Camera.transform);
         }
 
@@ -90,8 +90,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void PlayLandingSound()
         {
-            m_AudioSource.clip = m_LandSound;
-            m_AudioSource.Play();
+           // m_AudioSource.clip = m_LandSound;
+           // m_AudioSource.Play();
             m_NextStep = m_StepCycle + .5f;
         }
 
@@ -120,7 +120,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if (m_Jump)
                 {
                     m_MoveDir.y = m_JumpSpeed;
-                    PlayJumpSound();
+                    //PlayJumpSound();
                     m_Jump = false;
                     m_Jumping = true;
                 }
@@ -145,11 +145,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
-        private void PlayJumpSound()
+     /*   private void PlayJumpSound()
         {
             m_AudioSource.clip = m_JumpSound;
             m_AudioSource.Play();
-        }
+        }*/
 
 
         private void ProgressStepCycle(float speed)
