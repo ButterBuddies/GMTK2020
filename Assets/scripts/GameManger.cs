@@ -60,6 +60,7 @@ public class GameManger : MonoBehaviour
         if (ratCount >= loseRatCount)
         {
             Debug.Log("You lose, rate infestation out of control!");
+            Cursor.visible = true;
             SceneManager.LoadScene("Lose");
             //Cursor.visible = true;
             //losePanel.SetActive(true);
