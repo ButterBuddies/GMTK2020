@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SensitivityTest.unity
     guid: 63ca68efef000f94888e59869f100b48
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 94a3744946683174d872d9d62c5de31d
   m_configObjects: {}
