@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 742240483}
   - component: {fileID: 742240482}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: LaserOriginated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742240480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.429, y: 1.184, z: 0.368}
+  m_LocalPosition: {x: 0.080584, y: 0.53063, z: 1.1155}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 641755724714142240}
@@ -150,6 +150,8 @@ MonoBehaviour:
   rechargeRate: 50
   delayToRecharge: 2
   Pointers: {fileID: 2517537746754093153}
+  LaserIndicator: {fileID: 0}
+  LaserBar: {fileID: 0}
 --- !u!1 &641755723551644827
 GameObject:
   m_ObjectHideFlags: 0
