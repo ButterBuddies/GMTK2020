@@ -100,8 +100,8 @@ MonoBehaviour:
   col: {fileID: 7165114139019311560}
   trigger: {fileID: 7165114139019311603}
   rb: {fileID: 7165114139019311604}
-  attention: {fileID: 0}
-  threat: {fileID: 8578745093588416482, guid: fa004ccbb4bb19442bff752bc50423b0, type: 3}
+  attention: {fileID: 1774248526405717627}
+  threat: {fileID: 0}
 --- !u!54 &7165114139019311604
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -242,8 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca3606e165aa2a4ba31714fae1d2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Descript: 
+  Name: Tuna
+  Descript: Chicken of the sea
   ShowDebug: 0
   timeDuration: 10
   Threshold: 0.5
