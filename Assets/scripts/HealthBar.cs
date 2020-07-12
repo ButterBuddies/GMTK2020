@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthBar : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class HealthBar : MonoBehaviour
     public GameObject Gibs;
     public int MaxHitBeforeOblierate = 4;
     public float TimeToResetMaxhit = 2f;
+
+    public bool LoadSceneIfDead = false;
+    public string SceneToLoad;
 
     private int hits = 0;
     private float _t = 0;
@@ -25,11 +29,9 @@ public class HealthBar : MonoBehaviour
         }
         _t = TimeToResetMaxhit;
         Health -= d;
-        Health = Health < 0 ? 0 : Health;
-        if (Health == 0)
+        if (Health <= 0)
         {
-            state = State.Dead;
-            this.gameObject.SetActive(false);
+            Died();
         }
     }
 
@@ -42,8 +44,6 @@ public class HealthBar : MonoBehaviour
 
     public void Oblierated()
     {
-        Health = 0;
-        state = State.Dead;
         if (Gibs != null)
         {
             // SPAWN BLOODS
@@ -54,7 +54,17 @@ public class HealthBar : MonoBehaviour
             Destroy(go, 15f);
             // THIS IS DOOM!
         }
+        Died();
+    }
+
+    private void Died()
+    {
+        if (LoadSceneIfDead)
+            SceneManager.LoadScene(SceneToLoad);
+        Health = 0;
+        state = State.Dead;
         this.gameObject.SetActive(false);
+        Destroy(this.gameObject, 15f);
     }
 
     private void Update()
