@@ -1606,6 +1606,8 @@ MonoBehaviour:
   Gibs: {fileID: 1002876163015322034, guid: 1b1dfbd14b803bd4cb7a2f4179bac3b2, type: 3}
   MaxHitBeforeOblierate: 10000
   TimeToResetMaxhit: 1
+  LoadSceneIfDead: 1
+  SceneToLoad: Win
 --- !u!136 &3421367885163569648
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1641,6 +1643,8 @@ MonoBehaviour:
   NormalSpeed: 1
   UpdateRate: 0.2
   WanderRange: {x: 0, y: 0}
+  TimerDelayForRespawn: 5
+  NumberOfRatSpawnPerRound: 15
   RatPrefab: {fileID: 1106142834448834596, guid: 4ff63cff09984cf44a7df324aaf0f9aa,
     type: 3}
 --- !u!1001 &6326348316184147430
