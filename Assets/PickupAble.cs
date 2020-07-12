@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PickupAble : MonoBehaviour
 {
@@ -11,6 +9,18 @@ public class PickupAble : MonoBehaviour
     private PlayerController player;
     public Attention attention;
     public Threat threat;
+
+    public Item item
+    {
+        get
+        {
+            if (attention != null)
+                return attention;
+            if (threat != null)
+                return threat;
+            return null;
+        }
+    }
 
     bool held;
 
@@ -25,15 +35,16 @@ public class PickupAble : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {   //If player touches this pickup, it gets added to their inventory
-            if (!other.GetComponent<PlayerController>().HandsFull())
+            PlayerController playerController = other.GetComponent<PlayerController>();
+            if (!playerController.HandsFull())
             {
                 col.enabled = false;
                 //rb.isKinematic = false;
                 rb.constraints = RigidbodyConstraints.FreezeAll;
-                transform.SetParent(other.GetComponent<PlayerController>().holdingPos);
+                transform.SetParent(playerController.holdingPos);
                 held = true;
-                other.GetComponent<PlayerController>().HoldItem(this.gameObject);
-                player = other.GetComponent<PlayerController>();
+                playerController.HoldItem(this);
+                player = playerController;
             }
         }
     }
@@ -62,13 +73,11 @@ public class PickupAble : MonoBehaviour
         if (attention != null)
         {
             attention.enabled = true;
-            //Invoke("DisableAttention", 5);
         }
 
         if (threat != null)
         {
             threat.enabled = true;
-            //Invoke("DisableAttention", 5);
         }
 
     }
@@ -77,9 +86,9 @@ public class PickupAble : MonoBehaviour
     {
         attention.enabled = false;
     }
+
     public void EnableTrigger()
     {
-        trigger.enabled = true;
-        
+        trigger.enabled = true;  
     }
 }

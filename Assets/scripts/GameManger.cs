@@ -1,45 +1,70 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManger : MonoBehaviour
 {
-    public int maxRatCount;
-    public int minRatCount;
+    public int loseRatCount;
+    //public int winRatCount;
     public GameObject losePanel;
-    public GameObject ratSpawner;
-    public GameObject ratKing;
+    //public GameObject ratSpawner;
+    //public GameObject spawnerManager;
 
+    //Use a slider to indicate the rat infestation and determine if we win or lost the game.
+    // 0 means no rat infestaton
+    // 100 or 1 means 100% rat infestation and you lose the game.
+    // what about rat king? Hmm good fucking question!
+    // Let's add a slider for his abominable health!
+    public Slider RatInfestationStatus;
+    public Slider RatKingHealth;
+    public Image RatInfestationBackground;
+    public Gradient colorRamp = new Gradient();
+    //public PlayerController player;
 
     public void Start()
     {
-        InvokeRepeating("CountRats", 5, 5);
+        InvokeRepeating("CountRats", 1, 1 );
     }
 
     public void CountRats()
     {
-
         int ratCount = FindObjectsOfType<Rat>().Length;
         Debug.Log("Rat count: " + ratCount);
 
-        if (ratKing == null) //assuming the rat king has been defeated, the player won the game
+        //if (spawnerManager == null) //assuming the rat king has been defeated, the player won the game
+        //{
+        //    Debug.Log("rat king defeated");
+        //    //SceneManager.LoadScene("Win");
+        //}
+        //else if (ratCount <= minRatCount && !ratKing.activeInHierarchy)
+        //{
+        //    Debug.Log("You won, rat infestation under control");
+        //    StartBossFight();
+        //    //SceneManager.LoadScene("Win");
+        //}
+        
+        if (RatInfestationStatus != null )
         {
-            Debug.Log("rat king defeated");
-            //SceneManager.LoadScene("Win");
+            // rip 24 bit of memory allocation for this... but aat least it's easy to read..
+            float percentage = ((float)ratCount / (float)loseRatCount);
+            float minVal = RatInfestationStatus.minValue;
+            float maxVal = RatInfestationStatus.maxValue;
+            float newVal = (maxVal - minVal) * percentage + (minVal);
+            Debug.Log(newVal);
+            RatInfestationStatus.value = newVal;
+
+            if( RatInfestationBackground != null )
+                RatInfestationBackground.color = colorRamp.Evaluate(percentage);
         }
-        else if (ratCount <= minRatCount && !ratKing.activeInHierarchy)
+
+        if (ratCount >= loseRatCount)
         {
-            Debug.Log("You won, rat infestation under control");
-            StartBossFight();
-            //SceneManager.LoadScene("Win");
-        }
-        else if (ratCount >= maxRatCount && !ratKing.activeInHierarchy)
-        {
-            Debug.Log("You lose, rate infestation out of control");
-            Cursor.visible = true;
-            losePanel.SetActive(true);
-            ratSpawner.SetActive(true);
+            Debug.Log("You lose, rate infestation out of control!");
+            SceneManager.LoadScene("Lose");
+            //Cursor.visible = true;
+            //losePanel.SetActive(true);
+            //player.enabled = false;
+            //ratSpawner.SetActive(true);
         }
         //else if (ratKing.activeInHierarchy) 
         //{
@@ -48,9 +73,15 @@ public class GameManger : MonoBehaviour
 
     }
 
+    public void WinScene()
+    {
+        // TODO: probably need to add a variable to this just in case we need to rename the scene later.
+        SceneManager.LoadScene("Win");
+    }
+
     public void RestartCurrentScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void LoadMainMenu()
@@ -58,9 +89,9 @@ public class GameManger : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void StartBossFight()
-    {
-        ratKing.SetActive(true);
+    //public void StartBossFight()
+    //{
+    //    ratKing.SetActive(true);
 
-    }
+    //}
 }
