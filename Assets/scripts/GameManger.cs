@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -25,7 +23,7 @@ public class GameManger : MonoBehaviour
 
     public void Start()
     {
-        InvokeRepeating("CountRats", 5, 5);
+        InvokeRepeating("CountRats", 1, 1 );
     }
 
     public void CountRats()
@@ -44,13 +42,17 @@ public class GameManger : MonoBehaviour
         //    StartBossFight();
         //    //SceneManager.LoadScene("Win");
         //}
-        if(RatInfestationStatus != null )
+        
+        if (RatInfestationStatus != null )
         {
             // rip 24 bit of memory allocation for this... but aat least it's easy to read..
-            float percentage = (ratCount / loseRatCount);
+            float percentage = ((float)ratCount / (float)loseRatCount);
             float minVal = RatInfestationStatus.minValue;
             float maxVal = RatInfestationStatus.maxValue;
-            RatInfestationStatus.value = (minVal - maxVal) * percentage + (minVal);
+            float newVal = (maxVal - minVal) * percentage + (minVal);
+            Debug.Log(newVal);
+            RatInfestationStatus.value = newVal;
+
             if( RatInfestationBackground != null )
                 RatInfestationBackground.color = colorRamp.Evaluate(percentage);
         }
@@ -71,9 +73,15 @@ public class GameManger : MonoBehaviour
 
     }
 
+    public void WinScene()
+    {
+        // TODO: probably need to add a variable to this just in case we need to rename the scene later.
+        SceneManager.LoadScene("Win");
+    }
+
     public void RestartCurrentScene()
     {
-        SceneManager.LoadScene("The Main scene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void LoadMainMenu()
