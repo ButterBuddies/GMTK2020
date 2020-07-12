@@ -25,7 +25,6 @@ public class SpawnNode : Attention
                     go.transform.parent = this.transform.parent;
                 }
                 OnSpawnerEvent?.Invoke(this);
-                Debug.Log("Spawner destroyed!");
                 Destroy(this.gameObject);
             }
         }

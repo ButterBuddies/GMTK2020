@@ -44,7 +44,6 @@ public class Spawner : MonoBehaviour
         if( SpawnerPoints.Count == 0 )
         {
             // spawn Rat King
-            Debug.Log("LONG LIVE THE KING!");
             Instantiate(RatKing, this.transform.position, Quaternion.identity);
             this.enabled = false;
         }
