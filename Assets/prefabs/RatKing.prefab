@@ -1510,10 +1510,10 @@ GameObject:
   - component: {fileID: 3145324876359704790}
   - component: {fileID: 4120703155428040173}
   - component: {fileID: 4005613534199740430}
-  - component: {fileID: 8271425569024287113}
   - component: {fileID: 2556523681159404411}
   - component: {fileID: 7221766867443080289}
   - component: {fileID: 3421367885163569648}
+  - component: {fileID: -8929268006759438259}
   m_Layer: 0
   m_Name: RatKing
   m_TagString: Untagged
@@ -1571,31 +1571,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8271425569024287113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8889235617410319833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eeeb28d29c4d69479c1d8b12c11ec96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: THE FREAKIN RAT!! GET THE CATS TO CONSUME IT ALL!!!
-  Descript: 
-  ShowDebug: 1
-  timeDuration: 10
-  Threshold: 0.5
-  Radius: 61.8
-  NormalSpeed: 1
-  AlertSpeed: 2
-  AlertRadius: 40
-  UpdateRate: 0.05
-  FleeDistance: 10
-  WanderRange: {x: 1, y: 10}
-  state: 0
 --- !u!54 &2556523681159404411
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1640,7 +1615,33 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.59
-  m_Height: 0.82
+  m_Radius: 0.33
+  m_Height: 0.85
   m_Direction: 1
   m_Center: {x: 0, y: 0.42, z: 0}
+--- !u!114 &-8929268006759438259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889235617410319833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a396a5541e829fe49a75d96f3d8f8c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 
+  Descript: 
+  ShowDebug: 0
+  timeDuration: 10
+  Threshold: 0.5
+  Radius: 10
+  NormalSpeed: 10
+  AlertSpeed: 30
+  AlertRadius: 10
+  UpdateRate: 0.2
+  FleeDistance: 20
+  WanderRange: {x: 0, y: 0}
+  RatPrefab: {fileID: 1106142834448834596, guid: 4ff63cff09984cf44a7df324aaf0f9aa,
+    type: 3}
