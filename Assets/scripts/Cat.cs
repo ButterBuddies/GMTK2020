@@ -18,7 +18,7 @@ public class Cat : MonoBehaviour
      * Quite a interesting balance as all life should be... #Thanos
      */
 
-
+    public Animator anim;
     public enum Behavior { Flee, Chase, Idle, Freeze }
     //public enum Emotion { Lonely, Scared, Happy, Clean, Scout, Sleep, Eating }
 
@@ -260,6 +260,12 @@ public class Cat : MonoBehaviour
         weight -= Time.fixedDeltaTime * _currentWeightDeduction * _agent.velocity.normalized.magnitude;
         weight = Mathf.Clamp01(weight);
         _agent.speed = weightScale.Evaluate(weight) * _speedMagnitude;
+
+        anim.SetBool("IsWalking", false);
+        if (_agent.velocity != Vector3.zero)
+        {   //not walking
+            anim.SetBool("IsWalking", true);
+        }
     }
 
     private void ChaseObject()
