@@ -1642,9 +1642,9 @@ MonoBehaviour:
   Radius: 10
   NormalSpeed: 1
   UpdateRate: 0.2
-  WanderRange: {x: 0, y: 0}
+  WanderRange: {x: -360, y: 360}
   TimerDelayForRespawn: 5
-  NumberOfRatSpawnPerRound: 15
+  NumberOfRatSpawnPerRound: 10
   RatPrefab: {fileID: 1106142834448834596, guid: 4ff63cff09984cf44a7df324aaf0f9aa,
     type: 3}
 --- !u!1001 &6326348316184147430

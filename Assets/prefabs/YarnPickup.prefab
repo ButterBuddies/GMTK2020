@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 837723234710083802}
   - component: {fileID: 837723234710083809}
   m_Layer: 0
-  m_Name: YarnPickupFinal
+  m_Name: YarnPickup
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,6 +210,7 @@ MonoBehaviour:
   trigger: {fileID: 837723234710083802}
   rb: {fileID: 837723234710083805}
   attention: {fileID: 5420828489153626500}
+  threat: {fileID: 0}
 --- !u!54 &837723234710083805
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -418,11 +419,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca3606e165aa2a4ba31714fae1d2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Descript: 
+  Name: Yarnball
+  Descript: Yards full of fun
   ShowDebug: 0
   timeDuration: 10
-  Magntitude: 10
+  Threshold: 0.5
   Radius: 10
 --- !u!1 &5604218296443048018
 GameObject:
