@@ -68,7 +68,6 @@ public class Cat : MonoBehaviour
     public Material[] matsEyes;
     public Renderer EyeRender;
 
-
     #endregion
 
     #region Implementations

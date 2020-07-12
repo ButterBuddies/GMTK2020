@@ -44,6 +44,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        public bool AllowFlying = true;
+
         // Use this for initialization
         private void Start()
         {
@@ -99,36 +101,43 @@ namespace UnityStandardAssets.Characters.FirstPerson
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
-            Vector3 desiredMove = ( transform.forward*m_Input.y + transform.right*m_Input.x ) * speed;
-
+            Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
+            Vector3 flyingMove = desiredMove * speed;
             // get a normal for the surface that is being touched to move along it
-            //RaycastHit hitInfo;
-            //Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo,
-            //                   m_CharacterController.height/2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
-            //desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
 
-            //m_MoveDir.x = desiredMove.x*speed;
-            //m_MoveDir.z = desiredMove.z*speed;
+            RaycastHit hitInfo;
+            Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo,
+                               m_CharacterController.height / 2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
+            desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
 
-            //if (m_CharacterController.isGrounded)
-            //{
-            //    m_MoveDir.y = -m_StickToGroundForce;
+            m_MoveDir.x = desiredMove.x * speed;
+            m_MoveDir.z = desiredMove.z * speed;
 
-            //    if (m_Jump)
-            //    {
-            //        m_MoveDir.y = m_JumpSpeed;
-            //        PlayJumpSound();
-            //        m_Jump = false;
-            //        m_Jumping = true;
-            //    }
-            //}
-            //else
-            //{
-            //    m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
-            //}
+            if (m_CharacterController.isGrounded)
+            {
+                m_MoveDir.y = -m_StickToGroundForce;
 
-            m_CollisionFlags = m_CharacterController.Move(desiredMove * Time.fixedDeltaTime);   // m_MoveDir
+                if (m_Jump)
+                {
+                    m_MoveDir.y = m_JumpSpeed;
+                    PlayJumpSound();
+                    m_Jump = false;
+                    m_Jumping = true;
+                }
+            }
+            else
+            {
+                m_MoveDir += Physics.gravity * m_GravityMultiplier * Time.fixedDeltaTime;
+            }
 
+            if (AllowFlying)
+            {
+                m_CollisionFlags = m_CharacterController.Move(flyingMove * Time.fixedDeltaTime);  
+            }
+            else
+            {
+                m_CollisionFlags = m_CharacterController.Move(m_MoveDir * Time.fixedDeltaTime);
+            }
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
 
@@ -158,11 +167,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_NextStep = m_StepCycle + m_StepInterval;
 
-            PlayFootStepAudio();
+           // PlayFootStepAudio();
         }
 
 
-        private void PlayFootStepAudio()
+       /* private void PlayFootStepAudio()
         {
             if (!m_CharacterController.isGrounded)
             {
@@ -176,7 +185,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // move picked sound to index 0 so it's not picked next time
             m_FootstepSounds[n] = m_FootstepSounds[0];
             m_FootstepSounds[0] = m_AudioSource.clip;
-        }
+        }*/
 
 
         private void UpdateCameraPosition(float speed)
