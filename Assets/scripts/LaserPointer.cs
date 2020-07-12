@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(LineRenderer))]
 public class LaserPointer : Item
@@ -11,6 +11,9 @@ public class LaserPointer : Item
     public float delayToRecharge = 1f;
     private float _t;
     public GameObject Pointers;
+
+    public Text LaserIndicator;
+    public Slider LaserBar;
 
     // Hmmm..... interesting?
     private bool _isOn = false;
@@ -25,6 +28,7 @@ public class LaserPointer : Item
     public void Update()
     {
         _isOn = Input.GetButton("Fire1");
+        UpdateUI();
     }
 
     public void FixedUpdate()
@@ -89,6 +93,19 @@ public class LaserPointer : Item
                     BatteryLife += Time.fixedDeltaTime * rechargeRate;
                 }
             }
+        }
+    }
+
+    private void UpdateUI()
+    {
+        if( LaserBar != null)
+        {
+            LaserBar.value = Mathf.Lerp(1, 0, BatteryLife / 100);
+        }
+
+        if( LaserIndicator != null )
+        {
+            LaserIndicator.text = $"{Mathf.Clamp(Mathf.Floor(BatteryLife), 0, 100)}%";
         }
     }
 
