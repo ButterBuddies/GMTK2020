@@ -16,7 +16,10 @@ public class PlayerController : MonoBehaviour
     public PickupAble heldItem;
 
 
-    private void UpdateUI()
+    public bool tutorial = false;
+    public int progress = 0;
+
+    public bool UpdateUI()
     {
         // don't draw the text if I can't get the game object
         if (Header == null || Descript == null) return;
@@ -58,6 +61,13 @@ public class PlayerController : MonoBehaviour
             //use the item if holding one
             heldItem = null;
             UpdateUI();
+        }
+        if (tutorial)
+        {
+            if (progress < 2)
+            {
+                progress++;
+            }
         }
     }
 
