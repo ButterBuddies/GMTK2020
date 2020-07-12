@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         }
         if (tutorial)
         {
-            if (progress < 2)
+            if (progress <= 2)
             {
                 progress++;
             }
