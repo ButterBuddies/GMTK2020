@@ -15,9 +15,9 @@ public class Food : Item
         cat.Feed(this);
     }
 
-    public void Eaten(float amountEaten)
+    public void Eaten()
     {
-        amountLeft -= amountEaten;
+        amountLeft -= BiteCrunch;
         if (amountLeft <= 0)
         {
             Consumed();

@@ -1593,7 +1593,7 @@ MonoBehaviour:
   AlertSpeed: 300
   AlertRadius: 40
   UpdateRate: 0.05
-  FleeDistance: 20
+  FleeDistance: 0.5
   WanderRange: {x: 1, y: 10}
   state: 0
 --- !u!54 &6304968011291164294
